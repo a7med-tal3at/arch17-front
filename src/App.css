@@ -3,25 +3,39 @@
  margin: 0;
  padding: 0;
 }
+body {
+ min-height: 100vh;
+ background: #f8f8f8 !important;
+}
 #wrapper {
  padding-top: 100px;
+}
+.auth-form {
+ /* background: #f8f8f8; */
+ height: 100%;
+ max-width: 1200px;
 }
 #wrapper .heading {
  text-align: center;
  margin: 0 auto 30px;
 }
 .heading h2 {
- font-size: 2.5rem;
+ font-size: 3rem;
  font-weight: 600;
  font-family: Arial, Helvetica, sans-serif;
 }
 .heading h6 {
  font-family: sans-serif;
+ font-size: 1.2rem;
 }
 @media screen and (min-width: 768px) {
- #wrapper {
-  padding: 100px;
- }
+ /* #wrapper {
+  /* padding: 100px; */
+ /* } */
+}
+.form-control {
+ padding-top: 22px !important;
+ padding-bottom: 22px !important;
 }
 .coninue-btn {
  background: #a6292e;
@@ -29,6 +43,7 @@
  border: 0;
  width: 100%;
  color: #fff;
- height: 35px;
+ height: 42px;
+ font-size: 1.2rem;
  border-radius: 5px;
 }

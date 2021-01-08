@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Container, Col, Row } from "react-bootstrap";
+import { signup, isLogin } from "../../auth";
 import SignBtn from "../btns/SignBtn";
 import axios from "axios";
 
@@ -16,25 +17,20 @@ class Signup extends Component {
 
  handleSubmit = (e) => {
   e.preventDefault();
-  console.log("clicked!");
-  console.log(this.state);
-
-  axios
-   .post(
-    "https://arch17.herokuapp.com/api/user/registration/signup",
-    this.state
-   )
-   .then((res) => {
-    console.log(res.data.Bearer_token);
-    localStorage.setItem("token", res.data.Bearer_token);
-   });
+  console.log(isLogin());
+  signup(this.state);
  };
  render() {
   return (
-   <div id="wrapper">
+   <div id="wrapper" className="auth-form">
     <Container fluid>
      <Row className="justify-content-md-center">
-      <Col md={{ span: 7 }} sm={{ span: 8 }} className="m-auto">
+      <Col
+       lg={{ span: 6 }}
+       md={{ span: 8 }}
+       sm={{ span: 10 }}
+       className="m-auto p-5 bg-white rounded"
+      >
        <div className="heading">
         <h2>Welcome to Arch17</h2>
         <h6>The world platform for architecture & design</h6>
