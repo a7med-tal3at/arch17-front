@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Signup from './components/authentication/Signup'
+import Signin from './components/authentication/Signin'
 import reportWebVitals from './reportWebVitals';
+import Product from './components/Product'
 import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <Signup/>
+    {/* <Product/> */}
+    {/* <Signup/> */}
+    <Signin/>
   </React.StrictMode>,
   document.getElementById('root')
 );

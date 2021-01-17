@@ -19,6 +19,20 @@ export function signup(data){
         });
 }
 
+export function FacebookAuth() {
+
+    axios
+        .get(
+            "http://localhost:8000/api/auth/redirect",
+        )
+        .then((res) => {
+            console.log('Facebook');
+            console.log(res.data);
+
+
+        });
+}
+
 
 
 

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
  box-sizing: border-box;
  margin: 0;
@@ -7,6 +8,9 @@ body {
  min-height: 100vh;
  background: #f8f8f8 !important;
 }
+
+/* navigation styles */
+
 #nav-logo {
  width: 120px;
 }
@@ -20,8 +24,10 @@ body {
  background: #eaeaea;
  border-left: 1px solid #000;
 }
+/* end of navigation */
+
+/* signin and signup form styles */
 .auth-form {
- /* background: #f8f8f8; */
  height: 100%;
  max-width: 1200px;
  margin: 65px auto;
@@ -39,11 +45,7 @@ body {
  font-family: sans-serif;
  font-size: 1.2rem;
 }
-@media screen and (min-width: 768px) {
- /* #wrapper {
-  /* padding: 100px; */
- /* } */
-}
+
 .form-control {
  padding-top: 20px !important;
  padding-bottom: 20px !important;
@@ -77,11 +79,17 @@ body {
  height: 42px;
  font-size: 1.07rem;
  border-radius: 5px;
- /* margin:; */
+ position: relative;
+}
+.coninue-btn span {
+ position: absolute;
+ left: 24px;
+ bottom: 5px;
+ font-size: 1.5rem;
 }
 
 button.regular-auth {
- background-color: #a6292e;
+ background-color: #e41e15;
 }
 button.linkedin-auth {
  background-color: #518ec3;
@@ -98,3 +106,296 @@ button.wechat-auth {
 .wechat-auth {
  margin-bottom: 16px;
 }
+.terms,
+.switch {
+ margin: auto;
+ text-align: center;
+ font-weight: 600;
+ font-size: 0.8rem;
+}
+.terms span,
+.switch span {
+ color: #e41e15;
+}
+.terms {
+ width: 90%;
+ color: #666666;
+}
+.switch {
+ width: 80%;
+ margin-bottom: 10px;
+}
+.sign-footer {
+ min-height: 50px;
+ background: #e8e8e8;
+ position: absolute;
+ left: 0;
+ right: 0;
+ bottom: -30px;
+ padding: 25px 0;
+ font-weight: 900;
+ color: #666666;
+ text-align: center;
+ font-family: "Roboto";
+ border-bottom-left-radius: 5px;
+ border-bottom-right-radius: 5px;
+}
+.sign-footer span {
+ display: inline-block;
+ width: 25px;
+ height: 25px;
+ background: #fff;
+ border-radius: 50%;
+}
+
+/* end of signin and signup styles */
+
+/* media queries  */
+@media screen and (min-width: 768px) {
+ /* #wrapper {
+  /* padding: 100px; */
+
+ /* } */
+}
+@media screen and (max-width: 768px) {
+ .thumb {
+  grid-template-columns: repeat(4, 20vw);
+ }
+}
+/* end of media queries */
+
+/* product page styles */
+
+#swiper {
+ margin: 19px 0;
+}
+.thumb img {
+ display: block;
+ width: 100%;
+ height: 100%;
+}
+.card-header {
+ cursor: pointer;
+ position: relative;
+}
+span.accordion-icon {
+ position: absolute;
+ right: 5px;
+ top: 7px;
+ font-weight: 900;
+ font-size: 1.7rem;
+}
+.right-side {
+ min-height: 500px;
+ background: #f7f8fa;
+ border: 1px solid #dedede;
+ border-radius: 10px;
+ font-family: "Roboto";
+}
+.right-row {
+ margin: 15px 0;
+ padding: 5px 0;
+}
+span {
+ font-weight: bold;
+}
+.right-side .get-icons {
+ text-align: right;
+ font-weight: 600;
+}
+
+.get-icons > * {
+ margin: 5px 5px;
+ font-size: 1.5rem;
+ cursor: pointer;
+}
+.product-info > * {
+ margin: 5px 0;
+}
+.product-info .store-name {
+ font-size: 1.15rem;
+}
+
+.product-info .product-name {
+ font-size: 1.2rem;
+ font-weight: 600;
+}
+.product-info .design-by {
+ margin-top: 20px;
+ margin-bottom: 15px;
+ letter-spacing: 0;
+}
+.product-price .price-value {
+ color: #e41e15;
+ font-weight: 900;
+ font-size: 1.2rem;
+}
+.price-value span {
+ color: #000;
+ font-size: 12px;
+ margin-left: 10px;
+}
+.info-message {
+ color: #b1b1b1;
+ font-size: 14px;
+ width: 90%;
+ margin: 5px 0;
+}
+.options {
+ display: grid;
+ grid-gap: 7px;
+ margin: 10px 0;
+}
+.options button {
+ border: 1px solid #b1b1b1;
+}
+#sizes {
+ grid-template-columns: repeat(2, auto);
+}
+#sizes button {
+ background: #fff;
+ padding: 10px 0;
+ border-radius: 3px;
+}
+#materials {
+ grid-template-columns: repeat(4, 1fr);
+}
+#materials button {
+ height: 80px;
+ background: #acada8;
+ border-radius: 7px;
+}
+#materials button:nth-child(1) {
+ background: #3b3a3a;
+}
+#materials button:nth-child(2) {
+ background: #ffffff;
+}
+
+#materials button:nth-child(3) {
+ background: #dbdbdb;
+}
+
+.action-btn {
+ width: 100%;
+ border: none;
+ color: #fff;
+ padding: 12px;
+ border-radius: 3px;
+ font-weight: lighter;
+ font-size: 1rem;
+ text-transform: uppercase;
+ position: relative;
+}
+.btn-icons {
+ position: absolute;
+ left: 20px;
+ font-size: 1.6rem;
+ top: 3px;
+}
+button#shop-now {
+ width: 100%;
+ background: #e41e15;
+}
+.right-side ul {
+ list-style-position: inside;
+ list-style-type: none;
+ color: #888888;
+}
+
+ul#shop-upps span {
+ font-size: 0.85rem;
+ font-weight: 400;
+}
+.request-btns button {
+ margin: 5px 0;
+ background: #5d5d5d;
+ color: #fff;
+ font-size: 15px;
+}
+.save-btn {
+ color: #000;
+ border: 1px solid #e4e2e2;
+}
+.chat-btns button {
+ color: #000;
+ margin: 5px 0;
+ padding: 10px 0;
+ font-size: 0.9rem;
+}
+.chat-btns button span {
+ color: #17c900;
+}
+.chat-btns .reach-us {
+ font-size: 0.8rem;
+ margin: 10px 0;
+ font-weight: 600;
+}
+.reach-us span {
+ font-size: 0.9rem;
+}
+.product-page-accordian {
+ min-height: 350px;
+}
+.product-info {
+ margin-top: 20px;
+}
+.card {
+ border: none !important;
+}
+.card:last-child > .card-header {
+ border-bottom: 1px solid #dedede !important;
+}
+.card-header {
+ border: none !important;
+ font-weight: 600;
+ font-size: 1.2rem;
+
+ border-top: 1px solid #dedede !important;
+
+ min-height: 60px;
+ background: #fff !important;
+}
+
+/* for the carousel */
+
+.rec.rec-arrow {
+ border-radius: 0;
+ position: absolute;
+ background: transparent;
+ border: 0;
+ z-index: 5;
+ box-shadow: none;
+ background-color: #fff;
+ border-radius: 50%;
+ opacity: 0.6;
+ width: 40px !important;
+ height: 40px !important;
+ min-width: 40px !important;
+ max-height: 40px !important;
+ font-size: 1.2rem !important;
+ line-height: unset;
+}
+.rec.rec-arrow-right {
+ right: 35px;
+}
+.rec.rec-arrow-left {
+ left: 35px;
+}
+/* round buttons on hover */
+.rec.rec-arrow:hover {
+ background-color: #fff;
+}
+.rec.rec-arrow:focus {
+ background-color: #fff !important;
+ outline: unset !important;
+}
+.lgksPe:hover:enabled,
+.lgksPe:focus:enabled {
+ background-color: #fff !important;
+ box-shadow: none !important;
+ color: #000 !important;
+}
+/* end of carousel overridden styles */
+
+/* end of product page styles */
