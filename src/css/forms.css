@@ -1,0 +1,128 @@
+.form-container{
+    background-color: #FFFFFF ;
+}
+
+.form-header h1{
+    font-family: 'Arial';
+    font-size: 40px;
+    font-weight: bold ;
+}
+.form-header p{
+    font-size: 23px;
+    font-family: 'Roboto';
+    font-weight: normal;
+}
+.form-control{
+    border: 0.5px solid #ced4da !important;
+}
+.form-control:focus{
+    border-color: #000000 !important;
+    box-shadow: none !important;
+}
+.form-control::-webkit-input-placeholder,
+.form-control::-moz-placeholder ,
+.form-control:-ms-input-placeholder ,
+.form-control:-moz-placeholder { 
+    color: #A0A0A0;
+    font-size: 14px;
+}
+.form-group select{
+    color: #A0A0A0;
+    font-size: 14px;
+}
+
+.Label{
+    text-align: left;
+    display: block;
+}
+.btn-submit{
+    background-color: #e41e15;
+    border-color:#e41e15 ;
+    font-family: 'Arial';
+    font-weight: normal;
+}
+.btn-submit:hover,
+.btn-submit:focus,
+.btn-submit:active,
+.btn-submit:not(:disabled):not(.disabled).active:focus,
+.btn-submit:not(:disabled):not(.disabled):active:focus{
+    background-color: #e41e15 !important;
+    border-color:#e41e15  !important;
+    box-shadow:none;
+}
+.btn-submit.disabled, .btn-submit:disabled{
+    background-color: #898989;
+    border-color: #898989;
+    box-shadow: none;
+}
+.input-footer{
+    color: #BEBEBE;
+    font-family: 'Arial';
+    font-weight: normal;
+    font-size: 15px;
+    text-align: left;
+}
+.form-footer{
+    color: #BEBEBE;
+    font-family: 'Arial';
+    font-weight: normal;
+    font-size: 15px;
+    text-align: left;
+}
+.form-link{
+    color:#A6292E;
+}
+.form-link:hover{
+    color: #A6292E;
+    text-decoration: underline;
+}
+@media(max-width : 1200px ){
+    .form-header h1{
+        font-size: 34px;
+    }
+    .form-header p{
+        font-size: 21px;
+    }
+}
+@media(max-width : 576px ){
+    .form-header h1{
+        font-size: 24px;
+    }
+    .form-header p{
+        font-size: 14px;
+    }
+    .input-footer{
+        font-size: 12px;
+    }
+    .form-footer{
+        font-size: 12px;
+    }
+}
+
+
+/* 
+customize stiyle for phone packege
+*/
+.react-tel-input .form-control{
+    width: 100% !important;
+    height: 38px !important;
+    padding-left: 130px !important;
+}
+.react-tel-input .flag-dropdown{
+    width: 25% !important;
+
+}
+.react-tel-input .selected-flag{
+    width: 100% !important
+}
+.react-tel-input .selected-flag .arrow{
+    left: 76px;
+}
+.react-tel-input .selected-flag .flag {
+    left: 20px;
+}
+
+.special-label{
+    display: none !important;
+}
+

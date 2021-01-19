@@ -6,14 +6,14 @@ import { Container, Col, Row } from "react-bootstrap";
 import { FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 import { AiFillWechat } from "react-icons/ai";
 // import axios from "axios";
-import Navigation from "../Navigation";
+import Navigation from "../UI/Navigation";
 
 class Signin extends Component {
  state = {};
  render() {
   return (
    <React.Fragment>
-    <Navigation />
+    {/* <Navigation /> */}
     <div id="wrapper" className="auth-form">
      <Container fluid>
       <Row className="justify-content-md-center">

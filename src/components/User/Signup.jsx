@@ -5,7 +5,7 @@ import { Container, Col, Row } from "react-bootstrap";
 import { FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 import { AiFillWechat } from "react-icons/ai";
 // import { initFacebookSdk } from "../../facebook";
-import Navigation from "../Navigation";
+import Navigation from "../UI/Navigation";
 
 class Signup extends Component {
  state = {};
@@ -19,7 +19,7 @@ class Signup extends Component {
  render() {
   return (
    <React.Fragment>
-    <Navigation />
+    {/* <Navigation /> */}
     <div id="wrapper" className="auth-form">
      <Container fluid>
       <Row className="justify-content-md-center">

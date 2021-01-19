@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Col, Row } from "react-bootstrap";
-import Navigation from "../components/Navigation";
+import Navigation from "../UI/Navigation";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import { BsPlus, BsDownload, BsFillCaretDownFill } from "react-icons/bs";
@@ -12,8 +12,8 @@ import { RiWechat2Line } from "react-icons/ri";
 import { BiShareAlt } from "react-icons/bi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Carousel from "react-elastic-carousel";
-import Item from "./SliderComponents/slider";
-import { Flex, Square } from "./SliderComponents/slider";
+import Item from "../SliderComponents/slider";
+import { Flex, Square } from "../SliderComponents/slider";
 import slide1 from "../../src/slide1.jpg";
 import slide2 from "../../src/slide2.jpg";
 import slide3 from "../../src/slide3.jpg";

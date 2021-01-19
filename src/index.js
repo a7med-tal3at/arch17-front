@@ -2,19 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Signup from './components/authentication/Signup'
-import Signin from './components/authentication/Signin'
 import reportWebVitals from './reportWebVitals';
-import Product from './components/Product'
-import 'bootstrap/dist/css/bootstrap.min.css'
-
-
+import {BrowserRouter } from "react-router-dom";
+import Navigation from './components/UI/Navigation';
+import Footer from './components/UI/Footer';
 ReactDOM.render(
-  <React.StrictMode>
-    {/* <Product/> */}
-    {/* <Signup/> */}
-    <Signin/>
-  </React.StrictMode>,
+  <BrowserRouter>
+      {/* <Product/> */}
+      {/* <Signup/> */}
+      {/* <Signin/> */}
+      {/* <CreateCompany /> */}
+      {/* <CreateStore /> */}
+      <Navigation />
+        <App />
+        <Footer />
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

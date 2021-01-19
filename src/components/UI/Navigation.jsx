@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../../src/logo-gray.png";
+import logo from '../../logo-gray.png';
 import {
  Navbar,
  Nav,
@@ -8,13 +8,15 @@ import {
  FormControl,
  NavDropdown,
 } from "react-bootstrap";
+import { NavLink } from 'react-router-dom';
+
 class Navigation extends Component {
  state = {};
  render() {
   return (
    <Navbar bg="white" expand="md" sticky="top">
-    <Navbar.Brand href="#home">
-     <img id="nav-logo" src={logo} alt="Logo" />
+    <Navbar.Brand >
+    <NavLink to="/"><img id="nav-logo" src={logo} alt="Logo" /></NavLink>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
@@ -30,8 +32,8 @@ class Navigation extends Component {
       />
      </Form>
      <Nav className="ml-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#link">Link</Nav.Link>
+     <NavLink to="/signup" className="nav-link">sign up</NavLink>
+      <NavLink to="/signin" className="nav-link">Sign in</NavLink>
       <NavDropdown title="Dropdown" id="basic-nav-dropdown">
        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
