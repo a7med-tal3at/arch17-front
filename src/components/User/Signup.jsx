@@ -6,6 +6,8 @@ import { FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 import { AiFillWechat } from "react-icons/ai";
 // import { initFacebookSdk } from "../../facebook";
 
+import Navigation from "../UI/Navigation";
+import axios from "axios";
 class Signup extends Component {
  state = {};
 
@@ -14,6 +16,13 @@ class Signup extends Component {
  //   console.log(isLogin());
  //   signup(this.state);
  //  };
+
+ facebook = (e) => {
+  e.preventDefault();
+//   axios.get("http://127:8000/auth/facebook").then((response) => {
+//    console.log(response);
+//   });
+ };
 
  render() {
   return (
@@ -78,6 +87,7 @@ class Signup extends Component {
          <div className="form-separator"></div>
          <button
           className="coninue-btn facebook-auth"
+          onClick={this.facebook}
           //   type="submit"
           //   onClick={this.handleFacebookAuth}
          >
@@ -86,7 +96,11 @@ class Signup extends Component {
           </span>
           Continue With Facebook
          </button>
-         <button className="coninue-btn linkedin-auth" type="submit">
+         <button
+          className="coninue-btn linkedin-auth"
+          //   onClick={}
+          type="submit"
+         >
           <span>
            <FaLinkedinIn />
           </span>{" "}

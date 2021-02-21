@@ -8,6 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import CreatableSelect from 'react-select/creatable';
 const SignUp = React.lazy(()=>import('./components/User/Signup'));
 const SignIn = React.lazy(()=>import('./components/User/Signin'));
+const Product = React.lazy(()=>import('./components/Product/Product'));
 const CreateCompany = React.lazy(()=>import('./components/Compnay/CreateCompany'));
 const CreateStore = React.lazy(()=>import('./components/Store/CreateStore'));
 const CreateBusinessAccount = React.lazy(()=>import('./components/BusinesCenter/CreateBusinessAccount'));
@@ -21,11 +22,15 @@ const AddProductOptionAndPrice = React.lazy(()=>import('./components/Product/Add
 
 const AddProjectNavigation = React.lazy(()=>import('./components/Project/AddProject/AddProjectNavigation'));
 const Projects = React.lazy(()=>import('./components/Project/ProjectsContainer/ProjectsContainer'));
+const StepOne = React.lazy(() => import('./components/addProduct/StepOne'));
+const AddProductWrapper = React.lazy(() => import('./components/addProduct/AddProductWrapper'));
 
 class App extends Component {
   state = {  
     show:false
   }
+
+  // import Product from './components/Product/Product';
 
   logOut= ()=>{
     localStorage.removeItem('token');
@@ -128,20 +133,22 @@ class App extends Component {
                 <Button className="btn btn-dark btn-block w-100 m-auto"> add project </Button>
               </div>
               </Route>
-              <Route path="/signup" render={()=>(<Suspense fallback={<Spinner />} ><SignUp/></Suspense>)}/>
-              <Route path="/signin" render={()=>(<Suspense fallback={<Spinner />} ><SignIn/></Suspense>)}/>
-              <Route path="/CreateCompany" render={()=>(<Suspense fallback={<Spinner />} ><CreateCompany/></Suspense>)}/>
-              <Route path="/CreateStore" render={()=>(<Suspense fallback={<Spinner />} ><CreateStore/></Suspense>)}/>
-              <Route path="/createbusinessaccount" render={()=>(<Suspense fallback={<Spinner />} ><CreateBusinessAccount/></Suspense>)}/>
-              <Route path="/businesscenterlogin" render={()=>(<Suspense fallback={<Spinner />} ><BusinessCenterLogin/></Suspense>)}/>
-              <Route path="/ResetPasscode" render={()=>(<Suspense fallback={<Spinner />} ><ResetPasscode/></Suspense>)}/>
-              <Route path="/EnterNewPasscode" render={()=>(<Suspense fallback={<Spinner />} ><EnterNewPasscode/></Suspense>)}/>
-              <Route path="/ResetPassword" render={()=>(<Suspense fallback={<Spinner />} ><ResetPassword/></Suspense>)}/>
-              <Route path="/ResetPasswordMessage" render={()=>(<Suspense fallback={<Spinner />} ><ResetPasswordMessage/></Suspense>)}/>
-              <Route path="/EnterNewPassword" render={()=>(<Suspense fallback={<Spinner />} ><EnterNewPassword/></Suspense>)}/>
-              <Route path="/addproject" render={()=>(<Suspense fallback={<Spinner />} ><AddProjectNavigation/></Suspense>)}/>
-              <Route path="/AddProductOptionAndPrice" render={()=>(<Suspense fallback={<Spinner />}> <AddProductOptionAndPrice /> </Suspense>)} />
-              <Route path="/projects" render={()=>(<Suspense fallback={<Spinner />}> <Projects /> </Suspense>)} />
+              <Route path="/signup" render={()=>(<Suspense fallback={<div>loading ....</div>} ><SignUp/></Suspense>)}/>
+              <Route path="/signin" render={()=>(<Suspense fallback={<div>loading ....</div>} ><SignIn/></Suspense>)}/>
+            <Route path="/product" render={() => (<Suspense fallback={<div>loading ....</div>} ><Product /></Suspense>)} />
+
+              <Route path="/CreateCompany" render={()=>(<Suspense fallback={<div>loading ....</div>} ><CreateCompany/></Suspense>)}/>
+              <Route path="/CreateStore" render={()=>(<Suspense fallback={<div>loading ....</div>} ><CreateStore/></Suspense>)}/>
+              <Route path="/createbusinessaccount" render={()=>(<Suspense fallback={<div>loading ....</div>} ><CreateBusinessAccount/></Suspense>)}/>
+              <Route path="/businesscenterlogin" render={()=>(<Suspense fallback={<div>loading ....</div>} ><BusinessCenterLogin/></Suspense>)}/>
+              <Route path="/ResetPasscode" render={()=>(<Suspense fallback={<div>loading ....</div>} ><ResetPasscode/></Suspense>)}/>
+              <Route path="/EnterNewPasscode" render={()=>(<Suspense fallback={<div>loading ....</div>} ><EnterNewPasscode/></Suspense>)}/>
+              <Route path="/ResetPassword" render={()=>(<Suspense fallback={<div>loading ....</div>} ><ResetPassword/></Suspense>)}/>
+              <Route path="/ResetPasswordMessage" render={()=>(<Suspense fallback={<div>loading ....</div>} ><ResetPasswordMessage/></Suspense>)}/>
+            <Route path="/EnterNewPassword" render={() => (<Suspense fallback={<div>loading ....</div>} ><EnterNewPassword /></Suspense>)} />
+            <Route path="/addproduct-1" render={() => (<Suspense fallback={<div>loading ....</div>} ><StepOne /></Suspense>)} />
+            <Route path="/identity" render={() => (<Suspense fallback={<div>loading ....</div>} ><AddProductWrapper/></Suspense>)}/>
+
           </Switch>
         </div>
       </React.Fragment>

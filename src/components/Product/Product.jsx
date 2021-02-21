@@ -1,31 +1,44 @@
 import React, { Component } from "react";
-import { Container, Col, Row } from "react-bootstrap";
-import Navigation from "../UI/Navigation";
+import { Container, Col, Row, Form } from "react-bootstrap";
+// import Navigation from "../UI/Navigation";
+import Modal from "react-bootstrap/Modal";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
 import { BsPlus, BsDownload, BsFillCaretDownFill } from "react-icons/bs";
-
 import { IoLayersSharp, IoPricetags, IoCube } from "react-icons/io5";
-import { RiBook3Fill } from "react-icons/ri";
-import { AiOutlineWhatsApp } from "react-icons/ai";
-import { RiWechat2Line } from "react-icons/ri";
+import { RiWechat2Line, RiBook3Fill } from "react-icons/ri";
 import { BiShareAlt } from "react-icons/bi";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineShoppingCart, AiOutlineWhatsApp } from "react-icons/ai";
 import Carousel from "react-elastic-carousel";
 import Item from "../SliderComponents/slider";
 import { Flex, Square } from "../SliderComponents/slider";
-import slide1 from "../../src/slide1.jpg";
-import slide2 from "../../src/slide2.jpg";
-import slide3 from "../../src/slide3.jpg";
-import slide4 from "../../src/slide4.jpg";
+import slide1 from "../../../src/slide1.jpg";
+import slide2 from "../../../src/slide2.jpg";
+import slide3 from "../../../src/slide3.jpg";
+import slide4 from "../../../src/slide4.jpg";
+import PriceRequest from "../modals_and_popovers/PriceRequest_modal";
 
 const breakPoints = [{ width: 1200, itemsToShow: 1 }];
 
 class Product extends Component {
+ state = {
+  modals: {
+   price_request: false,
+  },
+ };
+
+ price_request_open = () => {
+  this.setState({ price_request: true });
+ };
+
+ price_request_close = () => {
+  this.setState({ price_request: false });
+ };
+
  render() {
   return (
    <React.Fragment>
-    <Navigation />
+    {/* <Navigation /> */}
     <div id="product-page" className="bg-white">
      <Container fluid>
       <Row className="justify-content-md-center p-md-5">
@@ -220,7 +233,7 @@ class Product extends Component {
          </div>
          <div className="right-row">
           <div className="request-btns">
-           <button className="action-btn">
+           <button className="action-btn" onClick={this.price_request_open}>
             <span className="btn-icons">
              <IoPricetags />
             </span>
@@ -283,6 +296,92 @@ class Product extends Component {
       </Row>
      </Container>
     </div>
+
+    <>
+     <Modal
+      id="price-request-modal"
+      className="arch-wide-modal product-modal"
+      size="lg"
+      show={this.state.price_request}
+      onHide={() => this.price_request_close()}
+      aria-labelledby="example-modal-sizes-title-lg"
+     >
+      <Modal.Header closeButton>
+       <Modal.Title id="example-modal-sizes-title-lg">
+        Request Price Info
+       </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+       <Container>
+        <Row>
+         <Col xs={12} md={5}>
+          <div className="product-price-img">
+           <img alt="product" src={slide1} />
+          </div>
+         </Col>
+         <Col xs={12} md={7}>
+          {/* .col-xs-6 .col-md-4 */}
+          <Form.Row>
+           <Form.Group as={Col} md={6} controlId="formGridState">
+            <Form.Label>Size</Form.Label>
+            <Form.Control as="select" defaultValue="Choose...">
+             <option>Choose...</option>
+             <option>...</option>
+            </Form.Control>
+           </Form.Group>
+          </Form.Row>
+          <Form.Row>
+           <Form.Group as={Col} md={6} controlId="formGridState">
+            <Form.Label>Material</Form.Label>
+            <Form.Control as="select" defaultValue="Choose...">
+             <option>Choose...</option>
+             <option>...</option>
+            </Form.Control>
+           </Form.Group>
+          </Form.Row>
+          <Form.Row>
+           <Form.Group as={Col} md={6} controlId="formGridState">
+            <Form.Label>Quantity</Form.Label>
+            <Form.Control as="select" defaultValue="Choose...">
+             <option>Choose...</option>
+             <option>...</option>
+            </Form.Control>
+           </Form.Group>
+          </Form.Row>
+          <Form.Row>
+           <Form.Group as={Col} md={6} controlId="formGridState">
+            <Form.Label>Shipping to</Form.Label>
+            <Form.Control as="select" defaultValue="Choose...">
+             <option>Choose...</option>
+             <option>...</option>
+            </Form.Control>
+           </Form.Group>
+           <Form.Group as={Col} md={6} controlId="formGridState">
+            <Form.Label>
+             <span> .</span>
+            </Form.Label>
+            <Form.Control as="select" defaultValue="Choose...">
+             <option>Choose...</option>
+             <option>...</option>
+            </Form.Control>
+           </Form.Group>
+          </Form.Row>
+         </Col>
+        </Row>
+
+        <Row>
+         <Col md={12}>Add Comment</Col>
+        </Row>
+        <Row>
+         <Col md={12}>GC DC code</Col>
+        </Row>
+        <Row>
+         <Col md={12}>Sent Button</Col>
+        </Row>
+       </Container>
+      </Modal.Body>
+     </Modal>
+    </>
    </React.Fragment>
   );
  }
