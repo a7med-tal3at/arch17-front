@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import logo from '../../logo-gray.png';
 import {
+Container,
  Navbar,
  Nav,
  Form,
- Button,
  FormControl,
  NavDropdown,
 } from "react-bootstrap";
@@ -14,6 +14,8 @@ class Navigation extends Component {
  state = {};
  render() {
   return (
+      <div className="w-100 bg-white navbar-border-bottom sticky-top">
+    <Container>
    <Navbar bg="white" expand="md" sticky="top">
     <Navbar.Brand >
     <NavLink to="/"><img id="nav-logo" src={logo} alt="Logo" /></NavLink>
@@ -44,6 +46,8 @@ class Navigation extends Component {
      </Nav>
     </Navbar.Collapse>
    </Navbar>
+   </Container>
+   </div>
   );
  }
 }

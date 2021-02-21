@@ -5,7 +5,6 @@ import { Container, Col, Row } from "react-bootstrap";
 import { FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 import { AiFillWechat } from "react-icons/ai";
 // import { initFacebookSdk } from "../../facebook";
-import Navigation from "../UI/Navigation";
 
 class Signup extends Component {
  state = {};

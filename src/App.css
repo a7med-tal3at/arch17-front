@@ -12,7 +12,9 @@ body {
     margin-top: 15%;
 }
 /* navigation styles */
-
+.navbar-border-bottom{
+    border-bottom: 1px solid #F0F0F0;
+}
 #nav-logo {
  width: 120px;
 }
@@ -49,8 +51,8 @@ body {
 }
 
 .form-control {
- padding-top: 20px !important;
- padding-bottom: 20px !important;
+ /* padding-top: 20px !important;
+ padding-bottom: 20px !important; */
 }
 .form-separator {
  background-color: #66666671;
@@ -198,9 +200,9 @@ span.accordion-icon {
  margin: 15px 0;
  padding: 5px 0;
 }
-span {
+/* span {
  font-weight: bold;
-}
+} */
 .right-side .get-icons {
  text-align: right;
  font-weight: 600;
@@ -401,3 +403,7 @@ ul#shop-upps span {
 /* end of carousel overridden styles */
 
 /* end of product page styles */
+/* global classes */
+.flex-direction-column{
+    flex-direction: column;
+}
