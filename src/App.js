@@ -5,6 +5,7 @@ import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 
 const SignUp = React.lazy(()=>import('./components/User/Signup'));
 const SignIn = React.lazy(()=>import('./components/User/Signin'));
+const Product = React.lazy(()=>import('./components/Product/Product'));
 const CreateCompany = React.lazy(()=>import('./components/Compnay/CreateCompany'));
 const CreateStore = React.lazy(()=>import('./components/Store/CreateStore'));
 const CreateBusinessAccount = React.lazy(()=>import('./components/BusinesCenter/CreateBusinessAccount'));
@@ -14,7 +15,11 @@ const EnterNewPasscode = React.lazy(()=>import('./components/BusinesCenter/Enter
 const ResetPassword = React.lazy(()=>import('./components/User/ResetPaswordForm'));
 const ResetPasswordMessage = React.lazy(()=>import('./components/User/ResetPasswordMessage'));
 const EnterNewPassword = React.lazy(()=>import('./components/User/EnterNewPassword'));
+const StepOne = React.lazy(() => import('./components/addProduct/StepOne'));
+const AddProductWrapper = React.lazy(() => import('./components/addProduct/AddProductWrapper'));
 class App extends Component {
+  // import Product from './components/Product/Product';
+
   state = {  }
 
   logOut= ()=>{
@@ -34,6 +39,8 @@ class App extends Component {
               </Route>
               <Route path="/signup" render={()=>(<Suspense fallback={<div>loading ....</div>} ><SignUp/></Suspense>)}/>
               <Route path="/signin" render={()=>(<Suspense fallback={<div>loading ....</div>} ><SignIn/></Suspense>)}/>
+            <Route path="/product" render={() => (<Suspense fallback={<div>loading ....</div>} ><Product /></Suspense>)} />
+
               <Route path="/CreateCompany" render={()=>(<Suspense fallback={<div>loading ....</div>} ><CreateCompany/></Suspense>)}/>
               <Route path="/CreateStore" render={()=>(<Suspense fallback={<div>loading ....</div>} ><CreateStore/></Suspense>)}/>
               <Route path="/createbusinessaccount" render={()=>(<Suspense fallback={<div>loading ....</div>} ><CreateBusinessAccount/></Suspense>)}/>
@@ -42,7 +49,10 @@ class App extends Component {
               <Route path="/EnterNewPasscode" render={()=>(<Suspense fallback={<div>loading ....</div>} ><EnterNewPasscode/></Suspense>)}/>
               <Route path="/ResetPassword" render={()=>(<Suspense fallback={<div>loading ....</div>} ><ResetPassword/></Suspense>)}/>
               <Route path="/ResetPasswordMessage" render={()=>(<Suspense fallback={<div>loading ....</div>} ><ResetPasswordMessage/></Suspense>)}/>
-              <Route path="/EnterNewPassword" render={()=>(<Suspense fallback={<div>loading ....</div>} ><EnterNewPassword/></Suspense>)}/>
+            <Route path="/EnterNewPassword" render={() => (<Suspense fallback={<div>loading ....</div>} ><EnterNewPassword /></Suspense>)} />
+            <Route path="/addproduct-1" render={() => (<Suspense fallback={<div>loading ....</div>} ><StepOne /></Suspense>)} />
+            <Route path="/identity" render={() => (<Suspense fallback={<div>loading ....</div>} ><AddProductWrapper/></Suspense>)}/>
+
           </Switch>
             </div>
       </React.StrictMode>
