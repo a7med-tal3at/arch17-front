@@ -1,0 +1,64 @@
+.add-product-box{
+    min-height: 1000px;
+    background-color: #FFF;
+    margin-top: 40px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.09), 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+    padding: 100px;
+}
+
+.form-label{
+    color: #000000;
+    text-align: left;
+    font-family: 'Arial';
+    font-size: 16px;
+    font-weight: bold ;
+}
+.form-check-input{
+    margin-top: 1rem;
+}
+.p-r-heading{
+    font-family: 'Arial';
+    font-weight: bold;
+    font-size: 24px;
+}
+.btn-trash{
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    color:#888888;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.role-row {
+    border-bottom: 1px solid #707070;
+}
+.role-head{
+    font-family: 'Arial';
+    color: #000000;
+    font-weight: normal;
+    font-size: 25px;
+}
+.btn-plus{
+    border: none;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: #E41E15;
+    color:#FFFFFF;
+    font-size: 36px;
+    font-weight: bold ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btn-desc{
+    font-size: 20px;
+    font-family: 'Arial';
+    color: #B4B4B4;
+    font-weight: normal;
+}

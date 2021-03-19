@@ -1,0 +1,354 @@
+
+/* --help 1  */
+.bg-help-item{
+    background-color:  #F7F8FA;
+}
+.item-2-row{
+    margin-left: -11px;
+    margin-right: -11px;
+}
+.header-font{
+    font-size: 64px;
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+.header-desc-font{
+    font-size: 22px;
+    font-family: 'Roboto';
+    font-weight: normal;
+}
+.help-image img{
+    width: 100% !important;
+    height: auto;
+    padding-top: 5% !important;
+    padding-bottom: 5% !important;
+}
+.header-desc-2-font{
+    font-size: 16px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    color: #707070;
+}
+.f-w-600{
+    font-weight: 600;
+}
+.f-w-500 {
+    font-weight: 500;
+}
+.item-2-desc{
+    font-size: 16px;
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+.item-2-desc span{
+    font-weight: 600;
+}
+.help-item-desc{
+    height: 180px;
+    padding-top: 44px;
+}
+.help-item-desc h3{
+    font-size:32px ;
+    font-family: 'Roboto';
+    font-weight: 600;
+}
+.help-item-desc p{
+    margin-bottom: 1px;
+    font-size:18px;
+    font-weight: 400;
+}
+.help-item-desc span{
+    margin-bottom: 1px;
+    font-size:18px;
+    font-weight: 400;
+    color: #ED220D;
+    cursor: pointer;
+}
+.help-item-desc span:hover{
+    text-decoration: underline;
+}
+/* --help 1 end */
+/* --help 2  */
+
+.font-bold{
+    font-weight: bold;
+}
+.help-2-header{
+    height: 640px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.help-2-3 h2{
+    font-size: 40px;
+    font-family: 'Roboto';
+    font-weight: 600;
+}
+.help-2-3 p{
+    font-size: 24px;
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+.help-2-desc-item h3{
+    font-size: 22px;
+    font-weight: 600;
+}
+.help-2-desc-item p{
+    color: #6C6C6C;
+    font-weight: 300;
+    font-size: 18px;
+}
+.help-2-desc-item-icon {
+    font-size: 24px;
+}
+.help-item-4{
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 10px;
+    height: 100%;
+    text-align: left;
+}
+.help-item-4 h3{
+    font-size: 24px;
+    font-family: 'Roboto';
+    font-weight: 600;
+    margin-bottom: 35px;
+    padding-top: 10px;
+}
+.help-item-4 p{
+    font-size: 18px;
+    font-family: 'Roboto';
+    font-weight: 300;
+}
+.help-item-4-icon{
+    position: absolute;
+    bottom: 8px;
+    right: 37px;
+    font-size: 40px;
+}
+/* --help-2 end */
+/* --Arch17-magazine */
+.f-w-300{
+    font-weight: 300;
+}
+.subscribe-container{
+    width: 35%;   
+}
+.subscribe-container h2{
+    font-weight: 700;
+}
+.subscribe-input input{
+    border-top-right-radius:0px ;
+    border-bottom-right-radius:0px ;
+    padding-top: 1.3rem;
+    padding-bottom: 1.30rem;
+}
+.subscribe-input button{
+    background-color: #000 !important;
+    border-top-left-radius:0px ;
+    border-bottom-left-radius:0px ;
+}
+.arch17-magazine-help-item{
+    width: inherit;
+    box-shadow: 0px 3px 6px #00000029;
+}
+.arch17-magazine-help-item h4{
+    margin-bottom: 16px;
+}
+.arch17-magazine-help-item p span{
+    font-weight: bold;
+}
+.text-decoration-underline{
+    text-decoration: underline;
+}
+@media(max-width : 1200px ){
+    /* --help1 */
+    .help-header{
+        background-color: #FFFFFF ;
+        width: 75% !important;
+        padding-bottom: 0px !important;
+    }
+    .help-image img{
+        width: 100% !important;
+        height: auto;
+        padding-top: 25% !important;
+        padding-bottom: 25% !important;
+    }
+    .help-item-image img{
+        width: 75% !important;
+        height: auto !important;
+    }
+    /* --help-1 end */
+    /* --help-2 */
+    .help-2-header{
+        height: 540px;
+        padding-top: 10px !important;
+    }
+    .help-2-item h1{
+        margin-bottom: 1px;
+    }
+    .help-item-4-container{
+        padding: 8px !important;
+    }
+    .help-item-4 h3{
+        font-size: 16px;
+    }
+    .help-item-4 p{
+        font-size: 14px;
+    }
+    .help-item-4-icon{
+        bottom: 16px;
+        right: 20px;
+    }
+    .help-2-desc-item h3{
+        font-size: 18px;
+    }
+    .help-2-desc-item p{
+        font-size: 15px;
+    }
+}
+@media(max-width : 768px ){
+    /* --help1 */
+    .help-header{
+        background-color: #FFFFFF ;
+        width: 100% !important;
+        padding-bottom: 0px !important;
+    }
+    .help-item-2{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .header-font{
+        font-size: 60px;
+        text-align: center;
+    }
+    .help-image img{
+        width: 100% !important;
+        height: auto;
+        padding-top: 50% !important;
+        padding-bottom: 50% !important;
+    }
+    .help-item-image img{
+        width: 75% !important;
+        height: auto !important;
+    }
+    .help-item-desc h3{
+        font-size:28px ;
+    }
+    .help-item-desc p{
+        font-size: 14px;
+    }
+    /* --help end  */
+    /* --help2 */
+    .help-2-header{
+        height: 400px;
+        padding-top: 10px !important;
+    }
+    .help-item-4-container{
+        padding: 8px !important;
+    }
+    .help-item-4-icon{
+        bottom: 16px;
+        right: 20px;
+    }
+    .help-2-item h1{
+        margin-bottom: 1px;
+    }
+}
+@media(max-width : 576px){
+        /* --help1  */
+    .help-header{
+        background-color: #F7F8FA ;
+        width: 100% !important;
+    }
+    .help-item-2{
+        background-color: #FFFFFF;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .help-item-2-desc{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .help-2-3 h2{
+        font-size: 32px;
+    }
+    .help-item-2 h3{
+        text-align: center !important;
+    }
+    .help-2-3 p{
+        font-size: 15px;
+    }
+    .header-font{
+        font-size: 32px;
+        text-align: center;
+    }
+    .header-desc-font{
+        font-size: 14px;
+    }
+    .header-desc-2-font{
+        font-size: 14px;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+    .help-image img{
+        width: 100% !important;
+        height: auto;
+        padding-top: 0% !important;
+        padding-bottom: 0% !important;
+    }
+    .help-item-image img{
+        width: 75% !important;
+        height: auto !important;
+    }
+    .help-item-desc p{
+        font-size: 14px;
+    }
+    /* --help1 end */
+    /* --help2  */
+    .help-2-header{
+        height: 200px;
+        padding-top: 10px !important;
+    }
+    .help-2-item{
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .help-2-item h1{
+        margin-bottom: 1px;
+    }
+    .help-2-item-2 {
+        width: 100% !important;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .help-2-item-2 h3{
+        text-align: left;
+        font-size: 22px;
+    }
+    .help-2-item-2 .item-2-desc {
+        font-size: 15px;
+    }
+    .help-item-4{
+        padding: 8px !important;
+    }
+    .help-item-4-container{
+        padding: 8px !important;
+    }
+    .help-item-4 h3{
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    .help-item-4 p{
+        font-size: 12px;
+    }
+    .help-item-4-icon{
+        bottom: 16px;
+        right: 20px;
+    }
+    .help-2-desc-item h3{
+        font-size: 12px;
+        text-align: left;
+    }
+    .help-2-desc-item p {
+        font-size: 12px;
+    }
+}

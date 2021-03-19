@@ -4,19 +4,34 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter } from "react-router-dom";
+import { Provider } from 'react-redux';
+import projectReducer from './store/reducers/projectReducer';
 import Navigation from './components/UI/Navigation';
 import Footer from './components/UI/Footer';
+import { combineReducers, createStore } from 'redux';
+
+const rootReducers = combineReducers({
+  projectReducer:projectReducer
+});
+
+
+
+const store = createStore(rootReducers);
+
+
+
+
+
+
+
 ReactDOM.render(
-  <BrowserRouter>
-      {/* <Product/> */}
-      {/* <Signup/> */}
-      {/* <Signin/> */}
-      {/* <CreateCompany /> */}
-      {/* <CreateStore /> */}
-      <Navigation />
-        <App />
+  <Provider store={store}>
+    <BrowserRouter>
+        <Navigation />
+          <App />
         <Footer />
-  </BrowserRouter>,
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 

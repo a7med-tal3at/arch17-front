@@ -14,6 +14,7 @@
 }
 .form-control{
     border: 0.5px solid #ced4da !important;
+    border-radius: 10px;
 }
 .form-control:focus{
     border-color: #000000 !important;
