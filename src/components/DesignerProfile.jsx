@@ -18,7 +18,7 @@ class DesignProfile extends Component {
   let { isOwner } = this.state;
   return (
    <React.Fragment>
-    <div id="designer-profile" className="bg-white">
+    <div id="designer-profile" className="bg-white mg-page">
      <Container fluid>
       <Row className="justify-content-md-center">
        <Col md={{ span: 12 }}>

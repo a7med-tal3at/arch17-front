@@ -23,7 +23,7 @@ class BrandPage extends Component {
  render() {
   return (
    <React.Fragment>
-    <div id="prand-page" className="bg-white">
+    <div id="prand-page" className="bg-white mg-page">
      <Container fluid>
       <Row className="justify-content-md-center">
        <Col md={{ span: 12 }}>
