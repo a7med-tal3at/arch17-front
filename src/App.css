@@ -1486,11 +1486,11 @@ h4.project-name {
 }
 
 /* store products page  */
-.product-box {
+.mg-page .product-box {
  font-family: "Roboto";
  margin-bottom: 35px;
 }
-.product-img {
+.mg-page .product-img {
  width: 100%;
  padding-top: 100%;
  background: #518ec3;
