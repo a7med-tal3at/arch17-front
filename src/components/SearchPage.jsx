@@ -19,7 +19,7 @@ class SearchPage extends Component {
  render() {
   return (
    <React.Fragment>
-    <div id="search-page">
+    <div id="search-page" className="mg-page">
      <Container fluid>
       <Row className="justify-content-md-center">
        <Col md={{ span: 4 }}>
