@@ -25,7 +25,13 @@ const HEPL1 = React.lazy(()=>import('./components/Helps/help-1'))
 const HEPL2 = React.lazy(()=>import('./components/Helps/help-2'))
 const Arch17Magazine = React.lazy(()=>import('./components/Helps/Arch17-Magazine'))
 const HomePage = React.lazy(()=>import('./components/HomePage/HomePage'))
+const UserProfile = React.lazy(() => import('./components/UserProfile'));
+const DesignerProfile = React.lazy(() => import('./components/DesignerProfile'));
+const BrandPage = React.lazy(() => import('./components/BrandPage'));
+const SearchPage = React.lazy(() => import('./components/SearchPage'));
 class App extends Component {
+  // import Product from './components/Product/Product';
+// import UserProfile from './components/UserProfile';
 
 
   state = {  
@@ -66,6 +72,21 @@ class App extends Component {
               <Route path="/Arch17-Magazine" render={() => (<Suspense fallback={<Spinner />} ><Arch17Magazine/></Suspense>)}/>
 
               <Redirect to="/" />
+              {/* <Route path="/CreateCompany" render={()=>(<Suspense fallback={<div>loading ....</div>} ><CreateCompany/></Suspense>)}/> */}
+              {/* <Route path="/CreateStore" render={()=>(<Suspense fallback={<div>loading ....</div>} ><CreateStore/></Suspense>)}/> */}
+              {/* <Route path="/createbusinessaccount" render={()=>(<Suspense fallback={<div>loading ....</div>} ><CreateBusinessAccount/></Suspense>)}/> */}
+              {/* <Route path="/businesscenterlogin" render={()=>(<Suspense fallback={<div>loading ....</div>} ><BusinessCenterLogin/></Suspense>)}/> */}
+              {/* <Route path="/ResetPasscode" render={()=>(<Suspense fallback={<div>loading ....</div>} ><ResetPasscode/></Suspense>)}/> */}
+              {/* <Route path="/EnterNewPasscode" render={()=>(<Suspense fallback={<div>loading ....</div>} ><EnterNewPasscode/></Suspense>)}/> */}
+              {/* <Route path="/ResetPassword" render={()=>(<Suspense fallback={<div>loading ....</div>} ><ResetPassword/></Suspense>)}/> */}
+              {/* <Route path="/ResetPasswordMessage" render={()=>(<Suspense fallback={<div>loading ....</div>} ><ResetPasswordMessage/></Suspense>)}/> */}
+            {/* <Route path="/EnterNewPassword" render={() => (<Suspense fallback={<div>loading ....</div>} ><EnterNewPassword /></Suspense>)} /> */}
+            {/* <Route path="/addproduct-1" render={() => (<Suspense fallback={<div>loading ....</div>} ><StepOne /></Suspense>)} /> */}
+            {/* <Route path="/identity" render={() => (<Suspense fallback={<div>loading ....</div>} ><AddProductWrapper /></Suspense>)} /> */}
+            <Route path="/user-profile" render={() => (<Suspense fallback={<div>loading ....</div>} ><UserProfile /></Suspense>)} />
+            <Route path="/designer-profile" render={() => (<Suspense fallback={<div>loading ....</div>} ><DesignerProfile /></Suspense>)} />
+            <Route path="/store-page" render={() => (<Suspense fallback={<div>loading ....</div>} ><BrandPage /></Suspense>)} />
+            <Route path="/search-page" render={() => (<Suspense fallback={<div>loading ....</div>} ><SearchPage /></Suspense>)} />
 
           </Switch>
         </div>

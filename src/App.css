@@ -154,20 +154,6 @@ button.wechat-auth {
 
 /* end of signin and signup styles */
 
-/* media queries  */
-@media screen and (min-width: 768px) {
- /* #wrapper {
-  /* padding: 100px; */
-
- /* } */
-}
-@media screen and (max-width: 768px) {
- .thumb {
-  grid-template-columns: repeat(4, 20vw);
- }
-}
-/* end of media queries */
-
 /* product page styles */
 
 #swiper {
@@ -759,6 +745,7 @@ td svg {
 
 .example-modals button.close {
  position: relative !important;
+
  bottom: 60px !important;
  color: #f8f8f8;
  right: -17px;
@@ -1064,3 +1051,657 @@ span.learn-more {
         display: none !important;
     }
 }
+/* user profile styles */
+
+.profile-section {
+ min-width: 300px;
+ max-width: 580px;
+ margin: 50px auto;
+ display: grid;
+ grid-template-columns: repeat(3, auto);
+ align-items: flex-start;
+ font-family: "Roboto";
+ grid-column-gap: 10px;
+}
+.profile-img {
+ width: 150px;
+ height: 150px;
+ margin-right: 15px;
+ border-radius: 50%;
+ background: #5d5d5d;
+}
+.profile-img img {
+ display: block;
+ width: 100%;
+ height: 100%;
+ border-radius: 50%;
+}
+.profile-heading {
+ height: 50px;
+ padding-top: 25px;
+ font-family: "Roboto";
+}
+
+.profile-heading .name {
+ font-size: 30px;
+ color: #000000;
+ font-weight: 700;
+}
+.profile-heading .join-design {
+ font-size: 16px;
+ color: #747474;
+ font-weight: 400;
+ text-decoration: underline;
+}
+.profile-tabs ul.react-tabs__tab-list {
+ text-align: center;
+}
+.profile-tabs ul.react-tabs__tab-list li {
+ display: inline-block;
+ margin: 0 25px;
+}
+.profile-tabs .react-tabs__tab-list {
+ max-width: unset;
+ border-bottom: 1px solid #d8d8d8 !important;
+ font-size: 20px;
+ font-family: "Roboto";
+ height: 52px;
+ font-weight: 400 !important;
+}
+.profile-tabs .react-tabs__tab--selected {
+ border-bottom: 3px solid #000 !important;
+ font-weight: 600;
+}
+.profile-tabs .react-tabs__tab {
+ padding-bottom: 8px;
+}
+.profile-tabs .react-tabs__tab-panel {
+ box-shadow: none !important;
+ padding: 0;
+}
+#user-profile,
+#designer-profile {
+ min-height: 100vh;
+}
+.profile-tabs .react-tabs__tab-panel {
+ max-width: 1250px;
+ margin: 30px auto !important;
+}
+
+.sub-user-tabs .react-tabs__tab--selected,
+.sub-user-tabs .react-tabs__tab-panel,
+.sub-user-tabs .react-tabs__tab-list {
+ border-bottom: none !important;
+ text-align: left !important;
+ font-size: 0.8rem;
+ margin-left: 2px !important;
+}
+
+.sub-user-tabs .react-tabs__tab {
+ min-width: auto !important;
+ margin-right: 5px !important;
+}
+.collection-col {
+ margin-bottom: 36px;
+}
+.collection-box {
+ width: 100%;
+ position: relative;
+ padding-top: 66.5%;
+}
+.collection-text {
+ padding-top: 14px;
+ display: inline-block;
+ font-family: "Roboto";
+ width: 80%;
+ vertical-align: middle;
+}
+.brand-img {
+ width: 50px;
+ height: 50px;
+ background: #5d5d5d;
+ display: inline-block;
+ vertical-align: middle;
+ background-color: #f0f0f0;
+ border: 0.5px solid #e2e2e2;
+ border-radius: 4px;
+ margin-right: 15px;
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center;
+}
+.collection-text h5 {
+ font-size: 22px;
+ color: #000000;
+ font-weight: 700;
+}
+.collection-text p {
+ font-size: 14px;
+ color: #747474;
+ font-weight: 400;
+}
+
+.rect {
+ background-color: #ededed;
+ margin: 2px;
+ /* border-radius: 7px; */
+ position: absolute;
+ background-position: -1px center;
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-origin: border-box;
+}
+.rect-0 {
+ left: 0;
+ width: 65.5%;
+ top: 0;
+ bottom: 0;
+ border-top-left-radius: 7px;
+ border-bottom-left-radius: 7px;
+}
+.rect-1,
+.rect-2 {
+ right: 0;
+ width: 32.5%;
+}
+.rect-1 {
+ top: 0;
+ bottom: 50%;
+ border-top-right-radius: 7px;
+ margin-bottom: 2px;
+}
+.rect-2 {
+ border-bottom-right-radius: 7px;
+ bottom: 0;
+ top: 50%;
+}
+.profile-settings-btn {
+ vertical-align: middle;
+ margin-top: 35px;
+ width: 112px;
+ height: 30px;
+ border-radius: 5px;
+ font-size: 16px;
+ background-color: #ffffff;
+ border: 1px solid #707070;
+ color: #747474;
+ font-weight: 400;
+ font-family: "Roboto";
+}
+
+/* end of user profile styles */
+
+/* designer profile styles */
+
+#designer-profile .profile-section {
+ grid-template-columns: repeat(2, auto);
+ min-height: 300px;
+ max-width: 710px;
+}
+
+.profile-btns,
+#designer-profile .name {
+ display: inline;
+ margin: 0 12px 0 0;
+ vertical-align: top;
+}
+
+.profile-btns button {
+ margin-right: 5px;
+}
+p.profile-title,
+.profile-loc,
+.profile-stats,
+.profile-stats span,
+.profile-services {
+ color: #747474;
+}
+.profile-stats,
+.profile-loc {
+ margin-bottom: 10px;
+ font-size: 14px;
+}
+.profile-loc span {
+ vertical-align: text-bottom;
+ font-size: 13px;
+ padding: 0 5px 0 0;
+}
+.profile-stats span,
+.profile-loc,
+.profile-services h6 {
+ font-weight: 400;
+}
+.profile-services h6,
+.profile-title {
+ font-size: 15px;
+}
+.profile-about span {
+ color: #747474;
+ text-decoration: underline;
+ font-weight: 400;
+ margin-left: 6px;
+}
+.profile-btns button {
+ background: #fff;
+ color: #747474;
+ width: 52px;
+ border: 1px solid #747474;
+ font-size: 14px;
+ height: 31px;
+ border-radius: 5px;
+}
+.profile-btns button:nth-child(2) svg {
+ width: 27px;
+ height: 30px;
+}
+.profile-title {
+ font-weight: 600;
+}
+.profile-stats span {
+ text-decoration: underline;
+ margin-right: 10px;
+}
+.profile-about {
+ font-size: 14px;
+ font-weight: 500;
+ color: #000;
+}
+.profile-services {
+ margin: 40px 0 0;
+}
+.profile-services ul {
+ display: grid;
+ list-style: none;
+ grid-template-columns: repeat(5, auto);
+ grid-gap: 10px;
+}
+.profile-services ul li {
+ background-color: #f4f4f4;
+ font-size: 13px;
+ text-align: center;
+ padding: 4px 0;
+ border-radius: 3px;
+}
+.project-box {
+ /* background: red; */
+ border: 1px solid #d1d1d1;
+}
+.project-img {
+ width: 100%;
+ padding-top: 67%;
+ background: #518ec3;
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: cover;
+}
+h4.project-name,
+.project-loc,
+.project-tag {
+ padding-left: 15px;
+ margin: 10px 0;
+ font-family: "Roboto";
+}
+h4.project-name {
+ color: #2e2e2e;
+ font-size: 21px;
+}
+.project-loc {
+ color: #a0a0a0;
+ font-size: 14px;
+}
+.project-tag {
+ color: #d1d1d1;
+ font-size: 11px;
+}
+.project-box hr {
+ width: 95%;
+ margin: auto;
+}
+.project-col {
+ margin-bottom: 30px;
+}
+
+/* end of designer profile styles */
+
+/* brand page styles */
+
+#prand-page {
+ overflow-x: hidden;
+}
+.cover-image-conatiner {
+ width: 100%;
+ padding-top: 33%;
+ background-color: rebeccapurple;
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: cover;
+ position: relative;
+}
+.brand-profile {
+ width: 100%;
+ display: grid;
+ grid-template-columns: auto auto auto;
+ justify-content: space-between;
+ align-items: flex-start;
+}
+.store-profile-box {
+ /* width: 100%; */
+ text-align: center;
+ position: relative;
+ top: -50%;
+}
+.profile-pattern-contents {
+ margin-top: 100px;
+}
+.store-tabs .react-tabs__tab-panel {
+ margin-left: 0 !important;
+ margin-right: 0 !important;
+ max-width: 1280px !important;
+}
+.store-tabs {
+ /* max-width: 1280px; */
+}
+.unmargin-row {
+ margin: 0 !important;
+ padding-left: 40px;
+}
+#prand-page {
+ font-family: "Roboto";
+}
+
+.loc-desc {
+ color: #747474;
+ font-weight: 400;
+ font-size: 13px;
+ line-height: 4px;
+}
+.br {
+ font-weight: 500;
+ padding: 2px 0 5px;
+}
+#prand-page .profile-img {
+ position: relative;
+ width: 100%;
+ height: 100%;
+ border-radius: 50%;
+ border: 1px solid #747474;
+}
+.store-btns {
+ margin-top: 10px;
+ text-align: right;
+}
+.store-btns button {
+ margin-left: 10px;
+ width: 100px;
+ display: inline-block;
+ border-radius: 5px;
+ padding: 3px 0;
+ background-color: transparent;
+ border: 1px solid #707070;
+ color: #747474;
+}
+.types-boxes {
+ display: grid;
+ grid-template-columns: repeat(5, 1fr);
+ grid-column-gap: 30px;
+ justify-items: space-between;
+}
+
+#prand-page .about,
+#prand-page .store-collection,
+#prand-page .types {
+ margin-bottom: 50px;
+}
+#prand-page .container-fluid {
+ max-width: 1280px !important;
+}
+
+#prand-page .about h2,
+#prand-page .types h2,
+#prand-page .store-collection h2 {
+ padding: 20px 0;
+}
+.store-collection .container-fluid {
+ padding: 0;
+}
+
+.type-box {
+ width: 100%;
+ border-radius: 10px;
+ padding-top: 100%;
+ background: #001a71;
+ opacity: 0.02;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+
+.profile-head-info {
+ display: inline-block;
+}
+
+/* store products page  */
+.product-box {
+ font-family: "Roboto";
+ margin-bottom: 35px;
+}
+.product-img {
+ width: 100%;
+ padding-top: 100%;
+ background: #518ec3;
+ /* background: #001a71 0% 0% no-repeat padding-box; */
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: cover;
+ position: relative;
+ /* opacity: 0.05; */
+}
+.save-product-btn,
+.file-btns {
+ position: absolute;
+}
+button.follow-btn {
+ background: #e41e15;
+}
+.save-product-btn {
+ top: 13px;
+ right: 13px;
+ padding: 1px 20px;
+ background: #fff;
+ color: #000;
+ border-radius: 2px;
+ visibility: hidden;
+}
+.save-product-btn:nth-child(3) {
+ visibility: visible !important;
+}
+.product-img button {
+ border: none;
+}
+.file-btns {
+ bottom: 10px;
+ right: 10px;
+}
+.file-btns button {
+ width: 27px;
+ height: 27px;
+ border-radius: 50%;
+ font-size: 10px;
+ margin-right: 4px;
+ background: #a0a0a0;
+ color: #fff;
+ padding: 0 3px;
+}
+.store-btns button span:first-child {
+ vertical-align: baseline;
+ font-size: 16px;
+}
+.store-btns button span {
+ font-weight: 400;
+ margin-right: 3px;
+ font-size: 13px;
+}
+button.follow-btn {
+ border: none;
+}
+.follow-btn span {
+ color: #fff;
+ font-weight: 300;
+}
+.no-opacity {
+ opacity: 1 !important;
+}
+.product-name,
+.product-desc {
+ color: #000;
+ font-family: "Roboto";
+}
+.product-name {
+ margin-top: 12px;
+ font-size: 20px;
+}
+.product-desc,
+.product-price {
+ font-weight: 300;
+ margin-bottom: 20px;
+}
+.product-price {
+ color: #ff0000;
+ font-size: 14px;
+}
+
+/* end of store product page */
+
+/* end of brand page styles */
+
+/* search page  */
+#search-page {
+ background: #fff;
+ font-family: "Roboto";
+}
+
+.search-page-accordian .card-header {
+ font-size: 0.9rem !important;
+ min-height: auto !important;
+ padding: 20px !important;
+}
+#search-page .nesting span {
+ color: #959595;
+ font-weight: 400 !important;
+ font-size: 13px;
+}
+.filters-tags h5 {
+ padding: 15px 0;
+ font-size: 1.2rem;
+ font-weight: 600;
+}
+.filters-tags {
+ margin-bottom: 50px;
+}
+.search-tags {
+ display: grid;
+ grid-template-columns: repeat(6, auto);
+ grid-gap: 10px;
+}
+.search-tags .tagable {
+ background: #efefef;
+ text-align: center;
+ color: #626262;
+ font-size: 0.9rem;
+ align-self: center;
+ padding: 2px 4px;
+}
+.search-tags > .clear-btn span {
+ color: #000 !important;
+ text-decoration: underline;
+ font-weight: 400;
+}
+#search-page .check-btns {
+ display: grid;
+ grid-template-columns: repeat(4, auto);
+ grid-gap: 25px;
+}
+#search-page .check-btns .check-btn {
+ border: 1px solid rgb(175, 175, 175);
+ text-align: center;
+ padding: 5px 0;
+ border-radius: 25px;
+ font-size: 0.75rem;
+}
+.check-btn input {
+ vertical-align: text-top;
+ margin: 0 2px;
+}
+#search-page .sorts {
+ text-align: right;
+}
+
+#search-page #right-search-side {
+ margin-top: 60px;
+}
+#search-page #check-sort {
+ margin-bottom: 25px;
+}
+#search-page .product-name {
+ font-size: 14px;
+}
+#search-page .product-desc {
+ font-size: 15px;
+ margin-bottom: 16px;
+}
+#search-page .product-price {
+ font-size: 14px;
+}
+#search-page .file-btns button {
+ width: 23px;
+ height: 23px;
+ padding: 0;
+ font-size: 9px;
+}
+
+/* end of search page styles  */
+
+/* media queries  */
+@media screen and (min-width: 768px) {
+}
+@media screen and (max-width: 768px) {
+ .thumb {
+  grid-template-columns: repeat(4, 20vw);
+ }
+
+ @media screen and (max-width: 500px) {
+  .profile-services ul {
+   grid-template-columns: repeat(3, auto);
+  }
+ }
+
+ /* user profile, designer profile, design company, brand */
+ #user-profile .profile-section,
+ #designer-profile .profile-section {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+ }
+ .profile-settings-btn {
+  margin-top: 65px;
+ }
+ .profile-mobile {
+  margin-top: 225px;
+ }
+ #designer-profile .profile-section {
+  min-height: auto;
+ }
+}
+
+@media screen and (max-width: 500px) {
+ .profile-mobile {
+  margin-top: 280px;
+ }
+}
+@media screen and (max-width: 393px) {
+ #designer-profile .profile-btns {
+  display: inline-block;
+  margin: 10px 0;
+ }
+}
+/* end of media queries */
