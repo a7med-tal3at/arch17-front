@@ -7,7 +7,7 @@ const ProjectBox = (props) =>{
             <div className="project-img">
                 <img src={'https://www.arch17.com/data/projects/339/cover/img/cover.jpg'} alt="Project Cover" className="img-fluid "/>
             </div>
-            <div className="project-desc ">
+            <div className="project-desc text-left">
                 <div className="project-name mb-4 mt-2">
                     <h4>A Neighborhood Candy-Sweet Bakery</h4>
                 </div>

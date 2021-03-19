@@ -1047,3 +1047,20 @@ span.learn-more {
 /* end of price request style */
 
 /* end of add product styles */
+
+@media (min-width: 1200px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl , .container-fluid{
+        max-width: 1250px !important;
+    }
+}
+.none-descktop{
+    display: none;
+}
+@media(max-width : 576px){
+    .none-descktop{
+        display: block;
+    }
+    .none-mobile{
+        display: none !important;
+    }
+}
