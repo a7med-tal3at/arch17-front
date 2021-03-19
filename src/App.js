@@ -17,8 +17,13 @@ const ResetPasswordMessage = React.lazy(()=>import('./components/User/ResetPassw
 const EnterNewPassword = React.lazy(()=>import('./components/User/EnterNewPassword'));
 const StepOne = React.lazy(() => import('./components/addProduct/StepOne'));
 const AddProductWrapper = React.lazy(() => import('./components/addProduct/AddProductWrapper'));
+const UserProfile = React.lazy(() => import('./components/UserProfile'));
+const DesignerProfile = React.lazy(() => import('./components/DesignerProfile'));
+const BrandPage = React.lazy(() => import('./components/BrandPage'));
+const SearchPage = React.lazy(() => import('./components/SearchPage'));
 class App extends Component {
   // import Product from './components/Product/Product';
+// import UserProfile from './components/UserProfile';
 
   state = {  }
 
@@ -51,7 +56,11 @@ class App extends Component {
               <Route path="/ResetPasswordMessage" render={()=>(<Suspense fallback={<div>loading ....</div>} ><ResetPasswordMessage/></Suspense>)}/>
             <Route path="/EnterNewPassword" render={() => (<Suspense fallback={<div>loading ....</div>} ><EnterNewPassword /></Suspense>)} />
             <Route path="/addproduct-1" render={() => (<Suspense fallback={<div>loading ....</div>} ><StepOne /></Suspense>)} />
-            <Route path="/identity" render={() => (<Suspense fallback={<div>loading ....</div>} ><AddProductWrapper/></Suspense>)}/>
+            <Route path="/identity" render={() => (<Suspense fallback={<div>loading ....</div>} ><AddProductWrapper /></Suspense>)} />
+            <Route path="/user-profile" render={() => (<Suspense fallback={<div>loading ....</div>} ><UserProfile /></Suspense>)} />
+            <Route path="/designer-profile" render={() => (<Suspense fallback={<div>loading ....</div>} ><DesignerProfile /></Suspense>)} />
+            <Route path="/store-page" render={() => (<Suspense fallback={<div>loading ....</div>} ><BrandPage /></Suspense>)} />
+            <Route path="/search-page" render={() => (<Suspense fallback={<div>loading ....</div>} ><SearchPage /></Suspense>)} />
 
           </Switch>
             </div>
