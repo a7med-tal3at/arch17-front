@@ -1,3 +1,6 @@
+export const API = 'API';
+export const SET_USER_INFO = "SET_USER_INFO"
+
 export 
 const 
 categories = 
@@ -83,5 +86,22 @@ export const years = yeasList;
 
 
 const getCountries = require('country-data').countries;
+
+
+//search fitler constants 
+
+export const fitlerCategories=[
+    'Furniture',
+     'Lighting',
+      'Decore',
+       'Bathroom',
+        'Wellness',
+         'Kitchen' ,
+         'Finishes' ,
+         'Materials' ,'Construction', 'Products'
+]
+
+// end of search filter 
+
 
 export const Countries = getCountries;
