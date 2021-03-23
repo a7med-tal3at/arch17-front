@@ -4,17 +4,16 @@ import { Container, Col, Row } from "react-bootstrap";
 import { FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 import { AiFillWechat } from "react-icons/ai";
 import { connect } from "react-redux";
-import loginUser from "../../redux/actions/AuthActionCreator";
+import { loginUser } from "./../../redux/actions/AuthActionCreator";
 const Signin = ({ dispatchLoginAction }) => {
  const [email, setEmail] = useState("");
  const [password, setPassword] = useState("");
 
  const handleLogin = (e) => {
-  e.preventDefault();
   dispatchLoginAction(
    email,
    password,
-   () => console.log("account created! "),
+   () => console.log("Welcome Back"),
    (message) => console.log("Error: " + message)
   );
  };
@@ -84,7 +83,7 @@ const Signin = ({ dispatchLoginAction }) => {
          </span>
          Continue With WeChat
         </button>
-        <div class="terms">
+        <div className="terms">
          <p>
           By clicking on Continue you agreed to <span>Terms of use</span> and
           <span> Privacy</span> policy.

@@ -18,16 +18,14 @@ export const loginUser = (data, onSuccess, onError) => ({
         method: "POST",
         url: 'user/registration/signin',
         data,
-        success: (response) => (setUserInfo(response.data)),
+        success: (response) => (setUserInfo(response)),
         postProcessSuccess: onSuccess,
         postProcessError: onError
-    },
+    }
 
 });
 
 const setUserInfo = (data) => {
-
-    // const parsedToken = JSON.parse(atob(data.Bearer_token.split('.')[1]));
     const user = data.user;
     const userData = {
         userId: user.id,
@@ -38,7 +36,7 @@ const setUserInfo = (data) => {
         isLoggedin: true
     };
 
-    localStorage.setItem('UserInfo', JSON.stringify(userData));
+    localStorage.setItem('user', JSON.stringify(userData));
 
     return { type: constants.SET_USER_INFO, payload: userData }
 }

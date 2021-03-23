@@ -13,7 +13,7 @@ import { connect } from "react-redux";
 
 const Navigation = ({ user }) => {
  const handleLogout = () => {
-  localStorage.removeItem("UserInfo");
+  localStorage.removeItem("user");
   window.location.reload("/");
  };
  return (

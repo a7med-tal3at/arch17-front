@@ -7,7 +7,7 @@ const defaultState ={
     isLoggedin:false
 }
 
-const userInfo = localStorage.getItem('UserInfo');
+const userInfo = localStorage.getItem('user');
 const INITIAL_STATE = userInfo? JSON.parse(userInfo):defaultState
 
 
