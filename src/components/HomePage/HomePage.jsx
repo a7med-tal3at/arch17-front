@@ -28,6 +28,19 @@ import sqaure4 from "../../square4.jpg";
 import sqaure5 from "../../square5.jpg";
 import sqaure6 from "../../square6.jpg";
 import sqaure7 from "../../square7.jpg";
+
+import collection2 from "../../collection-2.jpg";
+import profile from "../../profiles.jpg";
+import collection3 from "../../collection-3.jpg";
+import collection1 from "../../collection-1.png";
+import collection4 from "../../h-1.png";
+import collection5 from "../../h-2.png";
+import pr1 from "../../pr1.jpg";
+import pr2 from "../../pr2.jpg";
+import pr3 from "../../pr3.jpg";
+import pr4 from "../../pr4.jpg";
+import pr5 from "../../pr5.png";
+import store1 from "../../store1.jpg";
 import { generateKey } from './../../static/utility';
 
 
@@ -91,7 +104,53 @@ class HomePage extends Component{
         })
         return(
             <React.Fragment>
+                
+
                 <div className="w-100 home-page m-auto ">
+                        <section className="mega-menu bg-white py-3 none-mobile ">
+                            <Container className="position-relative px-0">
+                                <div className="mega-menu-bar d-flex justify-content-between ">
+                                    <div className="mega-item">
+                                        Get Inspired
+                                    </div>
+                                    <div className="mega-item">
+                                    Furniture
+                                    </div>
+                                    <div className="mega-item">
+                                    Living room
+                                    </div>
+                                    <div className="mega-item">
+                                    Bedroom
+                                    </div>
+                                    <div className="mega-item">
+                                    Office
+                                    </div>
+                                    <div className="mega-item">
+                                    Hotel
+                                    </div>
+                                    <div className="mega-item">
+                                    Outdoor
+                                    </div>
+                                    |
+                                    <div className="mega-item">
+                                    Events
+                                    </div>
+                                    <div className="mega-item">
+                                    Fair
+                                    </div>
+                                    <div className="mega-item">
+                                    Brands
+                                    </div>
+                                    <div className="mega-item">
+                                    Magazine
+                                    </div>
+                                </div>
+                                <span className="mega-publish position-absolute">
+                                    Publish Your Products
+                                </span>
+                            </Container>
+                        </section>
+                        
                     <section className="slider-section">
                         <Carousel className="home-page-slider" fade={true} slide={false} prevIcon={<img src={prev} alt={prev} width="26" height="26"/>} nextIcon={<img src={next} alt={next} width="26" height="26"/>} >
                             {Sildes}
@@ -279,6 +338,8 @@ class HomePage extends Component{
                                 </div>
                             </div>
                         </section>
+                    </Container>
+                    <Container className="bg-white">
                         <section className="project-contaienr text-center bg-white mt-5 pt-4">
                             <h2>
                                 Magazine
@@ -338,123 +399,123 @@ class HomePage extends Component{
                             <h3>
                             Explore products, get CAD / 3D files
                             </h3>
-                            <Row md={{ span: 12 }}>
-                            <Col lg={4} sm={6} xs={12}>
-                            <div className="product-box">
+                            <Row md={{ span: 12 }} className="mg-page">
+                                <Col lg={3} sm={4} xs={6}>
+                                <div className="product-box">
                                 <div
-                                className="product-img"
-                                style={{ backgroundImage: `url(${sqaure6})` }}
+                                    className="product-img"
+                                    style={{ backgroundImage: `url(${pr5})` }}
                                 >
-                                <button className="save-product-btn">Save</button>
-                                <div className="file-btns">
-                                <button className="file-product-btn">CAD</button>
-                                <button className="file-product-btn">3D</button>
-                                </div>
+                                    <button className="save-product-btn">Save</button>
+                                    <div className="file-btns">
+                                    <button className="file-product-btn">CAD</button>
+                                    <button className="file-product-btn">3D</button>
+                                    </div>
                                 </div>
 
                                 <h4 className="product-name">Product Name</h4>
                                 <div className="product-desc">ENZO Meeting Room Table</div>
                                 {/* <hr /> */}
                                 <div className="product-price">¥ 1395.00</div>
-                            </div>
-                            </Col>
-                            <Col lg={4} sm={6} xs={12}>
-                            <div className="product-box">
-                                <div
-                                className="product-img"
-                                style={{ backgroundImage: `url(${sqaure1})` }}
-                                >
-                                <button className="save-product-btn">Save</button>
-                                <div className="file-btns">
-                                <button className="file-product-btn">CAD</button>
-                                <button className="file-product-btn">3D</button>
                                 </div>
+                                </Col>
+                                <Col lg={3} sm={4} xs={6}>
+                                <div className="product-box">
+                                <div
+                                    className="product-img"
+                                    style={{ backgroundImage: `url(${pr2})` }}
+                                >
+                                    <button className="save-product-btn">Save</button>
+                                    <div className="file-btns">
+                                    <button className="file-product-btn">CAD</button>
+                                    <button className="file-product-btn">3D</button>
+                                    </div>
                                 </div>
                                 <h4 className="product-name">New Office</h4>
                                 <div className="product-desc">ENZO Meeting Room Table</div>
                                 {/* <hr /> */}
                                 <div className="product-price">¥ 1395.00</div>
-                            </div>
-                            </Col>
-                            <Col lg={4} sm={6} xs={12}>
-                            <div className="product-box">
-                                <div
-                                className="product-img"
-                                style={{ backgroundImage: `url(${sqaure2})` }}
-                                >
-                                <button className="save-product-btn">Save</button>
-                                <div className="file-btns">
-                                <button className="file-product-btn">CAD</button>
-                                <button className="file-product-btn">3D</button>
                                 </div>
+                                </Col>
+                                <Col lg={3} sm={4} xs={6}>
+                                <div className="product-box">
+                                <div
+                                    className="product-img"
+                                    style={{ backgroundImage: `url(${pr3})` }}
+                                >
+                                    <button className="save-product-btn">Save</button>
+                                    <div className="file-btns">
+                                    <button className="file-product-btn">CAD</button>
+                                    <button className="file-product-btn">3D</button>
+                                    </div>
                                 </div>
                                 <h4 className="product-name">New Office</h4>
                                 <div className="product-desc">ENZO Meeting Room Table</div>
                                 {/* <hr /> */}
                                 <div className="product-price">¥ 1395.00</div>
-                            </div>
-                            </Col>
-                            <Col lg={4} sm={6} xs={12}>
-                            <div className="product-box">
-                                <div
-                                className="product-img"
-                                style={{ backgroundImage: `url(${sqaure3})` }}
-                                >
-                                <button className="save-product-btn">Save</button>
-                                <div className="file-btns">
-                                <button className="file-product-btn">CAD</button>
-                                <button className="file-product-btn">3D</button>
                                 </div>
+                                </Col>
+                                <Col lg={3} sm={4} xs={6}>
+                                <div className="product-box">
+                                <div
+                                    className="product-img"
+                                    style={{ backgroundImage: `url(${pr4})` }}
+                                >
+                                    <button className="save-product-btn">Save</button>
+                                    <div className="file-btns">
+                                    <button className="file-product-btn">CAD</button>
+                                    <button className="file-product-btn">3D</button>
+                                    </div>
                                 </div>
                                 <h4 className="product-name">New Office</h4>
                                 <div className="product-desc">ENZO Meeting Room Table</div>
                                 {/* <hr /> */}
                                 <div className="product-price">¥ 1395.00</div>
-                            </div>
-                            </Col>
-                            <Col lg={4} sm={6} xs={12}>
-                            <div className="product-box">
-                                <div
-                                className="product-img"
-                                style={{ backgroundImage: `url(${sqaure4})` }}
-                                >
-                                <button className="save-product-btn">Save</button>
-                                <div className="file-btns">
-                                <button className="file-product-btn">CAD</button>
-                                <button className="file-product-btn">3D</button>
                                 </div>
+                                </Col>
+                                <Col lg={3} sm={4} xs={6}>
+                                <div className="product-box">
+                                <div
+                                    className="product-img"
+                                    style={{ backgroundImage: `url(${pr3})` }}
+                                >
+                                    <button className="save-product-btn">Save</button>
+                                    <div className="file-btns">
+                                    <button className="file-product-btn">CAD</button>
+                                    <button className="file-product-btn">3D</button>
+                                    </div>
                                 </div>
                                 <h4 className="product-name">New Office</h4>
                                 <div className="product-desc">Shehenzin, China | 2019</div>
                                 {/* <hr /> */}
                                 <div className="product-price">¥ 1395.00</div>
-                            </div>
-                            </Col>
-                            <Col lg={4} sm={6} xs={12}>
-                            <div className="product-box">
+                                </div>
+                                </Col>
+                                <Col lg={3} sm={4} xs={6}>
+                                <div className="product-box">
                                 <div
-                                className="product-img"
-                                style={{ backgroundImage: `url(${sqaure5})` }}
+                                    className="product-img"
+                                    style={{ backgroundImage: `url(${collection2})` }}
                                 ></div>
                                 <h4 className="product-name">New Office</h4>
                                 <div className="product-desc">Shehenzin, China | 2019</div>
                                 {/* <hr /> */}
                                 <div className="product-price">¥ 1395.00</div>
-                            </div>
-                            </Col>
-                            <Col lg={4} sm={6} xs={12}>
-                            <div className="product-box">
+                                </div>
+                                </Col>
+                                <Col lg={3} sm={4} xs={6}>
+                                <div className="product-box">
                                 <div
-                                className="product-img"
-                                style={{ backgroundImage: `url(${sqaure7})` }}
+                                    className="product-img"
+                                    style={{ backgroundImage: `url(${collection5})` }}
                                 ></div>
                                 <h4 className="product-name">New Office</h4>
                                 <div className="product-desc">Shehenzin, China | 2019</div>
                                 {/* <hr /> */}
                                 <div className="product-price">¥ 1395.00</div>
-                            </div>
-                            </Col>
-                            </Row>
+                                </div>
+                                </Col>
+                                </Row>
                             <button className="btn d-block mx-auto mt-4 see-more">
                             See More Products
                             </button>
