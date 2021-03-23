@@ -15,6 +15,9 @@ body {
 .navbar-border-bottom {
  border-bottom: 1px solid #f0f0f0;
 }
+#test-name {
+ padding: 8px;
+}
 #nav-logo {
  width: 120px;
 }
@@ -50,10 +53,6 @@ body {
  font-size: 1.2rem;
 }
 
-.form-control {
- /* padding-top: 20px !important;
- padding-bottom: 20px !important; */
-}
 .form-separator {
  background-color: #66666671;
  height: 1px;
@@ -1612,9 +1611,10 @@ button.follow-btn {
  background: #efefef;
  text-align: center;
  color: #626262;
- font-size: 0.9rem;
- align-self: center;
- padding: 2px 4px;
+ font-size: 0.75rem;
+ text-align: left;
+ padding: 2px 9px;
+ position: relative;
 }
 .search-tags > .clear-btn span {
  color: #000 !important;
@@ -1663,8 +1663,81 @@ button.follow-btn {
  padding: 0;
  font-size: 9px;
 }
-
+#search-page .css-26l3qy-menu {
+ box-shadow: none !important;
+}
+.search-page-accordian .done-btn {
+ display: none !important;
+}
+#search-page .css-26l3qy-menu > div > div,
+#search-page .css-e06opq-option {
+ font-size: 13px;
+}
+#search-page .search-page-accordian .css-m3inig-control,
+.search-page-accordian .css-m3inig-control:hover,
+.search-page-accordian .css-1on3eju-control {
+ border-radius: 4px !important;
+ border-color: #bbbbbb !important;
+ color: #c6c6c6 !important;
+ font-size: 13px;
+ font-family: "Roboto" !important;
+}
+.search-page-accordian .css-sybeu9-option:hover,
+.search-page-accordian .css-19dzoq9-option:hover {
+ background: transparent !important;
+ font-size: 13px;
+}
+.search-page-accordian .card-body {
+ min-height: 280px;
+}
+.tagable span {
+ position: absolute;
+ right: 3px;
+ font-size: 13px;
+}
 /* end of search page styles  */
+
+/* all categories page styles */
+#all-categories-page {
+ font-family: "Roboto";
+ padding-top: 30px;
+ background: #fff;
+}
+#all-categories-page p {
+ font-size: 0.9rem;
+ color: #959595;
+ font-weight: 400;
+}
+#all-categories-page h3 {
+ padding: 20px 0;
+ font-size: 2.5rem;
+ font-weight: 500;
+}
+#all-categories-page .category-col {
+ padding: 0 18px;
+}
+#all-categories-page .category-box {
+ background-color: #fafbfc;
+ margin: 25px 0;
+ border-bottom-left-radius: 10px;
+ border-bottom-right-radius: 10px;
+ /* padding: 0 10px; */
+}
+#all-categories-page .category-img {
+ width: 100%;
+ padding-top: 100%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+}
+#all-categories-page .category-name h2 {
+ font-size: 1.4rem;
+ padding: 1rem 0 2rem 1rem;
+ font-weight: 600;
+}
+/* end of all categories styles */
 
 /* media queries  */
 @media screen and (min-width: 768px) {

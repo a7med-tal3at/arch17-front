@@ -2,40 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
-import projectReducer from './store/reducers/projectReducer';
 import Navigation from './components/UI/Navigation';
 import Footer from './components/UI/Footer';
-import { combineReducers, createStore } from 'redux';
-
-const rootReducers = combineReducers({
-  projectReducer:projectReducer
-});
+import './includes/bootstrap'
+import configureStore from './redux/configureStore';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 
-
-const store = createStore(rootReducers);
-
-
-
-
-
-
-
+const store = configureStore();
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <Router>
         <Navigation />
           <App />
         <Footer />
-    </BrowserRouter>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
