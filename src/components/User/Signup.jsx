@@ -15,7 +15,6 @@ const Signup = ({ dispatchRegisterAction }) => {
  const [password_confirmation, setPasswordConfirmation] = useState("");
 
  const handleSubmit = (event) => {
-  console.log("ssss");
   dispatchRegisterAction(
    fname,
    lname,
