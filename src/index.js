@@ -2,23 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Signup from './components/authentication/Signup'
-import Signin from './components/authentication/Signin'
-import reportWebVitals from './reportWebVitals';
-import Product from './components/Product'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import { Provider } from 'react-redux';
+import Navigation from './components/UI/Navigation';
+import Footer from './components/UI/Footer';
+import './includes/bootstrap'
+import configureStore from './redux/configureStore';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 
+const store = configureStore();
 ReactDOM.render(
-  <React.StrictMode>
-    {/* <Product/> */}
-    {/* <Signup/> */}
-    <Signin/>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <Router>
+        <Navigation />
+          <App />
+        <Footer />
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
