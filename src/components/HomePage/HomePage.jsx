@@ -21,27 +21,21 @@ import grado from '../../images/HomePage/storesSection/grado.jpg';
 import storelogo from '../../images/HomePage/storesSection/storelogo.jpg';
 import scene from '../../images/HomePage/storesSection/scene.jpg';
 import viaform from '../../images/HomePage/storesSection/viaform.jpg';
-import sqaure1 from "../../square1.jpg";
-import sqaure2 from "../../square2.jpg";
-import sqaure3 from "../../square3.jpg";
-import sqaure4 from "../../square4.jpg";
-import sqaure5 from "../../square5.jpg";
-import sqaure6 from "../../square6.jpg";
-import sqaure7 from "../../square7.jpg";
+
 
 import collection2 from "../../collection-2.jpg";
-import profile from "../../profiles.jpg";
-import collection3 from "../../collection-3.jpg";
-import collection1 from "../../collection-1.png";
-import collection4 from "../../h-1.png";
+
 import collection5 from "../../h-2.png";
-import pr1 from "../../pr1.jpg";
+
 import pr2 from "../../pr2.jpg";
 import pr3 from "../../pr3.jpg";
 import pr4 from "../../pr4.jpg";
 import pr5 from "../../pr5.png";
-import store1 from "../../store1.jpg";
+
 import { generateKey } from './../../static/utility';
+import AddCompanyProject from './../Project/AddProject/AddProjectBtns/AddCompanyProject';
+import AddBrandProject from './../Project/AddProject/AddProjectBtns/AddBrandProject';
+import AddDesignerProject from './../Project/AddProject/AddProjectBtns/AddDesignerProject';
 
 
 class HomePage extends Component{
@@ -104,60 +98,66 @@ class HomePage extends Component{
         })
         return(
             <React.Fragment>
-                
-
-                <div className="w-100 home-page m-auto ">
+                <div className="text-center" key={generateKey('divs')}>
+                    <h2 className="mt-3">
+                        Add Projects Btns
+                    </h2>
+                    <AddCompanyProject id="11" />
+                    <AddBrandProject id="2" />
+                    <AddDesignerProject id="107" />
+                </div>
+                <div className="w-100 home-page m-auto "key={generateKey('divs')} >
                         <section className="mega-menu bg-white py-3 none-mobile ">
                             <Container className="position-relative px-0">
                                 <div className="mega-menu-bar d-flex justify-content-between ">
-                                    <div className="mega-item">
+                                    <div className="mega-item" key={generateKey('divs')}>
                                         Get Inspired
                                     </div>
-                                    <div className="mega-item">
+                                    <div className="mega-item" key={generateKey('divs')}>
                                     Furniture
                                     </div>
-                                    <div className="mega-item">
+                                    <div className="mega-item" key={generateKey('divs')}>
                                     Living room
                                     </div>
-                                    <div className="mega-item">
+                                    <div className="mega-item" key={generateKey('divs')}>
                                     Bedroom
                                     </div>
-                                    <div className="mega-item">
+                                    <div className="mega-item" key={generateKey('divs')}>
                                     Office
                                     </div>
-                                    <div className="mega-item">
+                                    <div className="mega-item" key={generateKey('divs')}>
                                     Hotel
                                     </div>
-                                    <div className="mega-item">
+                                    <div className="mega-item" key={generateKey('divs')}>
                                     Outdoor
                                     </div>
                                     |
-                                    <div className="mega-item">
+                                    <div className="mega-item" key={generateKey('divs')}>
                                     Events
                                     </div>
-                                    <div className="mega-item">
+                                    <div className="mega-item" key={generateKey('divs')}>
                                     Fair
                                     </div>
-                                    <div className="mega-item">
+                                    <div className="mega-item" key={generateKey('divs')}>
                                     Brands
                                     </div>
-                                    <div className="mega-item">
+                                    <div className="mega-item" key={generateKey('divs')}>
                                     Magazine
                                     </div>
                                 </div>
-                                <span className="mega-publish position-absolute">
+                                <span className="mega-publish position-absolute" key={generateKey('span')}>
                                     Publish Your Products
                                 </span>
                             </Container>
                         </section>
                         
-                    <section className="slider-section">
+                    <section className="slider-section" key={generateKey('section')}>
                         <Carousel className="home-page-slider" fade={true} slide={false} prevIcon={<img src={prev} alt={prev} width="26" height="26"/>} nextIcon={<img src={next} alt={next} width="26" height="26"/>} >
                             {Sildes}
                         </Carousel>
                     </section>
-                    <Container className="mt-5 px-0">
-                        <section className="w-100 home-heading-2 text-center">
+                    <Container className="mt-5 px-0" key={generateKey('Container')} >
+                        <section className="w-100 home-heading-2 text-center" key={generateKey('section')}>
                             <h2>
                                 Hot solutions by brands and designers inspires you to design and build
                             </h2>
@@ -169,9 +169,9 @@ class HomePage extends Component{
                             JOIN NOW
                             </button>
                         </section>
-                        <section className="media-section mt-5">
-                            <div>
-                                <div className="media-section-item">
+                        <section className="media-section mt-5" key={generateKey('section')}>
+                            <div key={generateKey('section')}>
+                                <div className="media-section-item" key={generateKey('media')}>
                                     <Suspense fallback={<p> loading images from supsencd </p>} >
                                         <Img 
                                         src={mediaSectionImg1}
@@ -199,7 +199,7 @@ class HomePage extends Component{
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div key={generateKey('media')}>
                                 <div className="media-section-item">
                                     <div>   
                                         <Suspense fallback={<p> loading images from supsencd </p>} >
@@ -222,7 +222,7 @@ class HomePage extends Component{
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div key={generateKey('media')}>
                                 <div className="media-section-item">
                                     <div>   
                                         <Suspense fallback={<p> loading images from supsencd </p>} >
@@ -245,7 +245,7 @@ class HomePage extends Component{
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div key={generateKey('media')}>
                                 <div className="media-section-item">
                                     <div>   
                                         <Suspense fallback={<p> loading images from supsencd </p>} >
@@ -268,7 +268,7 @@ class HomePage extends Component{
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div key={generateKey('media')}>
                                 <div className="media-section-item">
                                     <div>   
                                         <Suspense fallback={<p> loading images from supsencd </p>} >
@@ -291,7 +291,7 @@ class HomePage extends Component{
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div key={generateKey('media')}>
                                 <div className="media-section-item">
                                     <div>   
                                         <Suspense fallback={<p> loading images from supsencd </p>} >
@@ -314,7 +314,7 @@ class HomePage extends Component{
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div key={generateKey('media')}>
                                 <div className="media-section-item">
                                     <div>   
                                         <Suspense fallback={<p> loading images from supsencd </p>} >
@@ -340,7 +340,7 @@ class HomePage extends Component{
                         </section>
                     </Container>
                     <Container className="bg-white">
-                        <section className="project-contaienr text-center bg-white mt-5 pt-4">
+                        <section className="project-contaienr text-center bg-white mt-5 pt-4" key={generateKey('section')}>
                             <h2>
                                 Magazine
                             </h2>
@@ -378,7 +378,7 @@ class HomePage extends Component{
                                 Go to Magazine
                             </button>
                         </section>
-                        <section className="stores-container bg-white text-left">
+                        <section className="stores-container bg-white text-left" key={generateKey('section')}>
                             <h2>
                                 Brands & Stores
                             </h2>
@@ -392,7 +392,7 @@ class HomePage extends Component{
                                 see all
                             </button>
                         </section>
-                        <section className="products-container">
+                        <section className="products-container" key={generateKey('section')}>
                             <h2>
                             Products
                             </h2>
@@ -400,7 +400,7 @@ class HomePage extends Component{
                             Explore products, get CAD / 3D files
                             </h3>
                             <Row md={{ span: 12 }} className="mg-page">
-                                <Col lg={3} sm={4} xs={6}>
+                                <Col lg={3} sm={4} xs={6} key={generateKey('product')}>
                                 <div className="product-box">
                                 <div
                                     className="product-img"
@@ -419,7 +419,7 @@ class HomePage extends Component{
                                 <div className="product-price">¥ 1395.00</div>
                                 </div>
                                 </Col>
-                                <Col lg={3} sm={4} xs={6}>
+                                <Col lg={3} sm={4} xs={6} key={generateKey('product')}>
                                 <div className="product-box">
                                 <div
                                     className="product-img"
@@ -437,7 +437,7 @@ class HomePage extends Component{
                                 <div className="product-price">¥ 1395.00</div>
                                 </div>
                                 </Col>
-                                <Col lg={3} sm={4} xs={6}>
+                                <Col lg={3} sm={4} xs={6} key={generateKey('product')}>
                                 <div className="product-box">
                                 <div
                                     className="product-img"
@@ -455,7 +455,7 @@ class HomePage extends Component{
                                 <div className="product-price">¥ 1395.00</div>
                                 </div>
                                 </Col>
-                                <Col lg={3} sm={4} xs={6}>
+                                <Col lg={3} sm={4} xs={6} key={generateKey('product')}>
                                 <div className="product-box">
                                 <div
                                     className="product-img"
@@ -473,7 +473,7 @@ class HomePage extends Component{
                                 <div className="product-price">¥ 1395.00</div>
                                 </div>
                                 </Col>
-                                <Col lg={3} sm={4} xs={6}>
+                                <Col lg={3} sm={4} xs={6} key={generateKey('product')}>
                                 <div className="product-box">
                                 <div
                                     className="product-img"
@@ -491,7 +491,7 @@ class HomePage extends Component{
                                 <div className="product-price">¥ 1395.00</div>
                                 </div>
                                 </Col>
-                                <Col lg={3} sm={4} xs={6}>
+                                <Col lg={3} sm={4} xs={6} key={generateKey('product')}>
                                 <div className="product-box">
                                 <div
                                     className="product-img"
@@ -503,7 +503,7 @@ class HomePage extends Component{
                                 <div className="product-price">¥ 1395.00</div>
                                 </div>
                                 </Col>
-                                <Col lg={3} sm={4} xs={6}>
+                                <Col lg={3} sm={4} xs={6} key={generateKey('product')}>
                                 <div className="product-box">
                                 <div
                                     className="product-img"

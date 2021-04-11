@@ -6,6 +6,10 @@ import '../../../css/forms.css';
 import './AddProject.css';
 import { BsTrash  } from "react-icons/bs";
 import {  BiPlusMedical } from "react-icons/bi";
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
+import {addProjectRoleDesigners,addProjectRoleBrands,updateSteps, addProjectRole} from './../../../redux/actions/projectActions';
+import AddProjectTabs from './AddProjectTaps';
 class AddProjectRole extends Component{
     state = {
         designers:[            {
@@ -204,6 +208,21 @@ class AddProjectRole extends Component{
     focusBrands = ()=>{
         this.setState({showBrandsDropdown:true});
     }
+    handelSubmite = ()=>{
+        let roleData ={};
+        if(this.state.designers){
+            roleData['designers'] = this.state.designers.map(designer=>{return {user_id:designer.id,project_id:this.props.project.info.id}});
+        }
+        if (this.state.brands) {
+            roleData['suppliers'] = this.state.brands.map(brands=>{return {store_id:brands.id,project_id:this.props.project.info.id}});
+        }
+        roleData.token = this.props.user.token;
+        this.props.addProjectRole(roleData);
+        if(this.props.project.error === null && this.props.project.loading === false ){
+            this.props.history.push(this.props.project.nextStep);
+        }
+    }
+
     render(){
         let DesignersList ;
         if(this.state.FilteredDesigners){
@@ -295,6 +314,7 @@ class AddProjectRole extends Component{
                         }
         return (
             <React.Fragment>
+                <AddProjectTabs saveBtn={this.handelSubmite}/>
                 <Container className="add-project-box p-0 pt-5 pl-5 pr-5">
                     <Row className="justify-content-center">
                         <Col xs={12} sm={12} md={12} lg={12} xl={12} >
@@ -395,8 +415,15 @@ class AddProjectRole extends Component{
     
 }
 
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        addProjectRole: (roleData)=>dispatch(addProjectRole(roleData)),
+        updateSteps:(currentStep,nextStep)=>dispatch(updateSteps(currentStep,nextStep))
+    }
+}
+const mapStateToProps = (state) => ({ user: state.user ,project:state.Project});
 
-export default AddProjectRole;
+export default connect(mapStateToProps,mapDispatchToProps)( withRouter(AddProjectRole));
 
 
 

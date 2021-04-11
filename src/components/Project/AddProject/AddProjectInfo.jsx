@@ -3,11 +3,15 @@ import Container  from 'react-bootstrap/Container';
 import Row  from 'react-bootstrap/Row';
 import Col  from 'react-bootstrap/Col';
 import Form  from 'react-bootstrap/Form';
+import { connect } from "react-redux";
 import {categories , years , types , Countries} from '../../../static/constant';
 import {checkValidity,updateObject} from '../../../static/utility';
 import CustomSelect from './CustomSelect';
 import '../../../css/forms.css';
 import './AddProject.css';
+import { addProjectInfo, updateSteps } from './../../../redux/actions/projectActions';
+import AddProjectTabs from './AddProjectTaps';
+import {withRouter} from 'react-router-dom';
 
 class AddProjectInfo extends Component{
     state = {
@@ -23,7 +27,7 @@ class AddProjectInfo extends Component{
                 err:null
             },
             projectType:{
-                value:'',
+                value:[],
                 validation:{
                     requierd:true
                 },
@@ -32,7 +36,7 @@ class AddProjectInfo extends Component{
                 err:null
             },
             projectCategory:{
-                value:[],
+                value:'',
                 validation:{
                     requierd:true,
                     isArray:true
@@ -70,11 +74,36 @@ class AddProjectInfo extends Component{
                 err:null
             }
         },
-        formIsValid:false,
+        formIsValid: false,
         selectedOption: null,
     };
-
-
+    componentDidMount(){
+        console.log(this.props.project)
+        this.props.updateSteps('info','content')
+    }
+    sunmiteandredirect = () =>{
+        console.log(this.state.formIsValid);
+        if(this.state.formIsValid){
+        let infoObject = {
+            "name":this.state.infoForm.projectName.value,
+            "types":this.state.infoForm.projectType.value,
+            "category":this.state.infoForm.projectCategory.value,
+            "country":this.state.infoForm.projectCountry.value,
+            "city":this.state.infoForm.projectCity.value,
+            "year":this.state.infoForm.projectYear.value.toString(),
+            "state":"info",
+            "token":this.props.user.token
+        };
+        console.log(infoObject);
+        if (this.props.project.proejctCreator.creator == 'company') {
+            infoObject.company_id = this.props.project.proejctCreator.id;
+        }
+        this.props.addProjectInfo(infoObject);
+            if(this.props.project.error === null ){
+                this.props.history.push(this.props.project.nextStep);
+            }
+        }
+    }
     inputCangedHandeler = (value,inputIdentifier) =>{
     const updatedFormElement = updateObject(this.state.infoForm[inputIdentifier],
         {
@@ -87,7 +116,7 @@ class AddProjectInfo extends Component{
         });
         let formIsValid = true;
         for(let inputIdentifier in updatedInfoForm){
-            formIsValid=updatedInfoForm[inputIdentifier].valid && formIsValid
+            formIsValid=updatedInfoForm[inputIdentifier].valid;
         }
         this.setState({infoForm:updatedInfoForm,formIsValid:formIsValid}, () => {
             console.log('State Updated',this.state);
@@ -106,8 +135,11 @@ class AddProjectInfo extends Component{
         const CountriesList = Countries.all.map(c=>{
             return { value: c.name, label: c.name  }
         });
+
         return (
             <React.Fragment>
+                {this.props.project.loading?(<p>loading</p>):null}
+                <AddProjectTabs saveBtn={this.sunmiteandredirect} />
                 <Container className="add-project-box">
                     <Row className="justify-content-center">
                         <Col xs={12} sm={12} md={12} lg={12} xl={12} >
@@ -141,7 +173,7 @@ class AddProjectInfo extends Component{
                                         <CustomSelect 
                                             name="project-type"
                                             options={typesOptions}
-                                            onChange={(event)=>this.inputCangedHandeler(event.map(el=>el.value),'projectCategory')}
+                                            onChange={(event)=>this.inputCangedHandeler(event.map(el=>el.value),'projectType')}
                                             placeholder="Project Type"
                                             isMulti={true}
                                             closeMenuOnSelect={false}
@@ -159,7 +191,7 @@ class AddProjectInfo extends Component{
                                         <CustomSelect 
                                             name="project-categor"
                                             options={categoriesOptions}
-                                            onChange={(event)=>this.inputCangedHandeler(event.value,'projectType')}
+                                            onChange={(event)=>this.inputCangedHandeler(event.value,'projectCategory')}
                                             placeholder="Project Category"
                                             isMulti={false}
                                             closeMenuOnSelect={false}
@@ -218,9 +250,16 @@ class AddProjectInfo extends Component{
 
     
 }
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        addProjectInfo:(infoData)=>dispatch(addProjectInfo(infoData)),
+        updateSteps:(currentStep,nextStep)=>dispatch(updateSteps(currentStep,nextStep))
+    }
+}
+const mapStateToProps = (state) => ({ user: state.user ,project:state.Project});
 
 
-export default AddProjectInfo;
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(AddProjectInfo));
 
 
 

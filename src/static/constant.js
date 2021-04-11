@@ -1,6 +1,6 @@
 export const API = 'API';
 export const SET_USER_INFO = "SET_USER_INFO"
-
+export const BASE_URL = 'http://127.0.0.1:8000/api/';
 export 
 const 
 categories = 
@@ -88,6 +88,9 @@ export const years = yeasList;
 const getCountries = require('country-data').countries;
 
 
+
+export const Countries = getCountries;
+
 //search fitler constants 
 
 export const fitlerCategories=[
@@ -102,6 +105,3 @@ export const fitlerCategories=[
 ]
 
 // end of search filter 
-
-
-export const Countries = getCountries;

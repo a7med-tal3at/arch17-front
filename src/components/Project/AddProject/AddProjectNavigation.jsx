@@ -3,18 +3,25 @@ import Container  from 'react-bootstrap/Container';
 import Row  from 'react-bootstrap/Row';
 import Col  from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
-import { NavLink,Switch,Route,withRouter } from 'react-router-dom';
+import { NavLink, Switch, Route, withRouter } from 'react-router-dom';
 import { IoIosArrowBack } from 'react-icons/io';
 import Spinner from '../../UI/Spinner/Spinner';
-
+import { connect } from "react-redux";
 import './AddProject.css';
+import { addProjectCreator } from './../../../redux/actions/projectActions';
 const AddProjectInfo = React.lazy(()=>import('./AddProjectInfo'));
 const AddProjectContent = React.lazy(()=>import('./AddProjectContent'));
 const AddProjectRole = React.lazy(()=>import('./AddProjectRole'));
 const AddProjectProducts = React.lazy(()=>import('./AddProjectProducts'));
 const AddProjectCover = React.lazy(()=>import('./AddProjectCover'));
 class AddProjectNavigation extends Component{
-
+    constructor(props){
+        super(props);
+        const companyId = new URLSearchParams(this.props.location.search).get("companyId") ;
+        this.props.addProjectCreator('company',companyId);
+        this.props.history.push("/addproject/info");
+        console.log(this.props.project);
+    }
     render(){
         return (
             <React.Fragment>
@@ -47,14 +54,7 @@ class AddProjectNavigation extends Component{
                                             <NavLink activeClassName="add-project-nav-active" className="add-project-nav-link" to={this.props.match.path+"/cover"}  >5. Cover</NavLink>
                                         </Nav.Item>
                                     </Nav>
-                                    <div className="add-project-nav-btns">
-                                        <button className="add-project-skip-btn mx-1">
-                                            Skip
-                                        </button>
-                                        <button className="add-project-save-btn mx-1">
-                                            Save & Continue
-                                        </button>
-                                    </div>
+
                                 </div>
                             </Col>
                         </Row>
@@ -76,7 +76,14 @@ class AddProjectNavigation extends Component{
 }
 
 
-export default withRouter( AddProjectNavigation);
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        addProjectCreator:(creator,id)=>dispatch(addProjectCreator(creator,id))
+    }
+}
+const mapStateToProps = (state) => ({ user: state.user ,project:state.Project});
+
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(AddProjectNavigation));
 
 
 

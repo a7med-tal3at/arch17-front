@@ -10,10 +10,17 @@ import collection2 from "../../src/collection-2.jpg";
 import collection3 from "../../src/collection-3.jpg";
 import collection4 from "../../src/h-1.png";
 import collection5 from "../../src/h-2.png";
+import { connect } from "react-redux";
+import { withRouter   } from 'react-router-dom';
+
 class DesignProfile extends Component {
  state = {
-  isOwner: false,
+  isOwner: true,
  };
+ navigateToAddProject = () =>{
+    this.props.history.push("/addproject?companyId=11");
+    console.log(this.props.user);
+}
  render() {
   let { isOwner } = this.state;
   return (
@@ -88,6 +95,10 @@ class DesignProfile extends Component {
            <div className="user-profile-tab">
             <Container fluid>
              <Row md={{ span: 12 }}>
+                 {this.state.isOwner?
+                <Col lg={4} sm={6} xs={12} className="project-col">
+                <button className="btn btn-danger" onClick={this.navigateToAddProject}>Add Project </button>
+            </Col>:null}
               <Col lg={4} sm={6} xs={12} className="project-col">
                <div className="project-box">
                 <div
@@ -179,5 +190,5 @@ class DesignProfile extends Component {
   );
  }
 }
-
-export default DesignProfile;
+const mapStateToProps = (state) => ({ user: state.user });
+export default connect(mapStateToProps)(withRouter(DesignProfile));

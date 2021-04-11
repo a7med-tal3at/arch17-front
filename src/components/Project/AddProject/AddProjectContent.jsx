@@ -13,6 +13,12 @@ import { FaCloudUploadAlt,FaPencilAlt } from 'react-icons/fa';
 import { BiPlusMedical } from "react-icons/bi";
 import { generateKey } from './../../../static/utility';
 import LoadingSpinner from './loadingSpinner';
+import AddProjectTabs from './AddProjectTaps';
+import { connect } from "react-redux";
+import {withRouter} from 'react-router-dom';
+
+import { addProjectContent, updateSteps } from './../../../redux/actions/projectActions';
+
 class AddProjectContent extends Component{
     state = {
         content:[],
@@ -87,6 +93,16 @@ class AddProjectContent extends Component{
         this.setState({
             content:updatedArray
         })
+    }
+    handelSubmite = () => {
+        let contentObject = {"description":this.state.content.map(item=>JSON.stringify(item)),"project_id":this.props.project.info.id,token:this.props.user.token};
+        console.log(contentObject); 
+        this.props.addProjectContent(contentObject);
+        if(this.props.project.error === null && this.props.project.loading === false ){
+            this.props.history.push(this.props.project.nextStep);
+        }
+        // this.props.history.push("/addproject/role");
+
     }
     render(){
         let content;
@@ -240,6 +256,8 @@ class AddProjectContent extends Component{
             }
         return (
             <React.Fragment>
+                {this.props.project.loading?(<p>loading</p>):null}
+                <AddProjectTabs saveBtn={this.handelSubmite}/>
                 <Container className="add-project-box">
                     <Row className="justify-content-center">
                         {this.state.content.length>0?content:null}
@@ -251,8 +269,15 @@ class AddProjectContent extends Component{
     }
 }
 
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        addProjectContent:(contentData)=>dispatch(addProjectContent(contentData)),
+        updateSteps:(currentStep,nextStep)=>dispatch(updateSteps(currentStep,nextStep))
+    }
+}
+const mapStateToProps = (state) => ({ user: state.user ,project:state.Project});
 
-export default AddProjectContent;
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)( AddProjectContent));
 
 
 

@@ -1,4 +1,9 @@
 /* add project navbar */
+/* .add-project-nav-btns{
+    position: absolute;
+    top: 84px;
+    left: 77%;
+} */
 .add-project-skip-btn{
     background-color: #888888;
     color: #FFF;
@@ -434,9 +439,16 @@
     display: flex;
     align-items: center;
 }
-@media(min-width : 1200px ){
+@media(min-width : 1366px ){
+    /* .add-project-nav-btns{
+        left: 69%;
+    } */
+}
+@media(max-width : 1200px ){
     /* add project navigation bar */
-
+    /* .add-project-nav-btns{
+        left: 75%;
+    } */
     /* project info */
     .add-project-name{
         height: 75px;

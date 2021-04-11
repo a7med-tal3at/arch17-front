@@ -31,6 +31,11 @@ const DesignerProfile = React.lazy(() => import('./components/DesignerProfile'))
 const BrandPage = React.lazy(() => import('./components/BrandPage'));
 const SearchPage = React.lazy(() => import('./components/SearchPage'));
 const Categories = React.lazy(() => import('./components/AllCategories'));
+const AddProjectInfo = React.lazy(()=>import('./components/Project/AddProject/AddProjectInfo')) ;
+const AddProjectContent = React.lazy(()=>import('./components/Project/AddProject/AddProjectContent')) ;
+const AddProjectRole = React.lazy(()=>import('./components/Project/AddProject/AddProjectRole')) ;
+const AddProjectProducts = React.lazy(()=>import('./components/Project/AddProject/AddProjectProducts')) ;
+const AddProjectCover = React.lazy(()=>import('./components/Project/AddProject/AddProjectCover')) ;
 
 const App = ({user})=> {
     return (  
@@ -38,7 +43,7 @@ const App = ({user})=> {
         <div className="" style={{'minHeight':'auto'}}>
         
           <Switch>
-            <Route path="/" exact render={()=>(<Suspense fallback={<Spinner />} ><HomePage/></Suspense>)}/>
+              <Route path="/" exact render={()=>(<Suspense fallback={<Spinner />} ><HomePage/></Suspense>)}/>
               <Route exact path="/CreateCompany" render={()=>(<Suspense fallback={<Spinner />} ><CreateCompany/></Suspense>)}/>
               <Route exact path="/CreateStore" render={()=>(<Suspense fallback={<Spinner />} ><CreateStore/></Suspense>)}/>
               <Route exact path="/createbusinessaccount" render={()=>(<Suspense fallback={<Spinner />} ><CreateBusinessAccount/></Suspense>)}/>
@@ -48,7 +53,6 @@ const App = ({user})=> {
               <Route exact path="/ResetPassword" render={()=>(<Suspense fallback={<Spinner />} ><ResetPassword/></Suspense>)}/>
               <Route exact path="/ResetPasswordMessage" render={()=>(<Suspense fallback={<Spinner />} ><ResetPasswordMessage/></Suspense>)}/>
               <Route exact path="/EnterNewPassword" render={()=>(<Suspense fallback={<Spinner />} ><EnterNewPassword/></Suspense>)}/>
-              <Route exact path="/addproject" render={()=>(<Suspense fallback={<Spinner />} ><AddProjectNavigation/></Suspense>)}/>
               <Route exact path="/AddProductOptionAndPrice" render={()=>(<Suspense fallback={<Spinner />}> <AddProductOptionAndPrice /> </Suspense>)} />
               <Route exact path="/projects" render={()=>(<Suspense fallback={<Spinner />}> <Projects /> </Suspense>)} />
               <Route exact path="/addproduct-1" render={() => (<Suspense fallback={<div>loading ....</div>} ><StepOne /></Suspense>)} />
@@ -57,13 +61,13 @@ const App = ({user})=> {
               <Route exact path="/project/:id" render={() => (<Suspense fallback={<Spinner />} ><ProjectPage/></Suspense>)}/>
               <Route exact path="/projects" render={() => (<Suspense fallback={<Spinner />} ><Projects/></Suspense>)}/>
               <Route exact path="/help-1" render={() => (<Suspense fallback={<Spinner />} ><HEPL1/></Suspense>)}/>
-            <Route exact path="/help-2" render={() => (<Suspense fallback={<Spinner />} ><HEPL2/></Suspense>)}/>
+              <Route exact path="/help-2" render={() => (<Suspense fallback={<Spinner />} ><HEPL2/></Suspense>)}/>
               <Route exact path="/Arch17-Magazine" render={() => (<Suspense fallback={<Spinner />} ><Arch17Magazine/></Suspense>)}/>
               <Route exact path="/user-profile" render={() => (<Suspense fallback={<div>loading ....</div>} ><UserProfile /></Suspense>)} />
               <Route exact path="/designer-profile" render={() => (<Suspense fallback={<div>loading ....</div>} ><DesignerProfile /></Suspense>)} />
               <Route exact path="/store-page" render={() => (<Suspense fallback={<div>loading ....</div>} ><BrandPage /></Suspense>)} />
-            <Route exact path="/search-page" render={() => (<Suspense fallback={<div>loading ....</div>} ><SearchPage /></Suspense>)} />
-            <Route exact path="/categories" render={() => (<Suspense fallback={<div>loading ....</div>} ><Categories /></Suspense>)} />
+              <Route exact path="/search-page" render={() => (<Suspense fallback={<div>loading ....</div>} ><SearchPage /></Suspense>)} />
+              <Route exact path="/categories" render={() => (<Suspense fallback={<div>loading ....</div>} ><Categories /></Suspense>)} />
               {/* <Route path="/CreateCompany" render={()=>(<Suspense fallback={<div>loading ....</div>} ><CreateCompany/></Suspense>)}/> */}
               {/* <Route path="/CreateStore" render={()=>(<Suspense fallback={<div>loading ....</div>} ><CreateStore/></Suspense>)}/> */}
               {/* <Route path="/createbusinessaccount" render={()=>(<Suspense fallback={<div>loading ....</div>} ><CreateBusinessAccount/></Suspense>)}/> */}
@@ -78,13 +82,21 @@ const App = ({user})=> {
             {!user.isLoggedin ? 
             (
               <React.Fragment>
-             <Route exact path="/signup" render={() => (<Suspense fallback={<Spinner />} ><SignUp /></Suspense>)} />
-             <Route exact path="/signin" render={() => (<Suspense fallback={<Spinner />} ><SignIn /></Suspense>)} />
+                <Route exact path="/signup" render={() => (<Suspense fallback={<Spinner />} ><SignUp /></Suspense>)} />
+                <Route exact path="/signin" render={() => (<Suspense fallback={<Spinner />} ><SignIn /></Suspense>)} />
+              </React.Fragment>
+              ):(
+                <React.Fragment>
+                  {/* <Route path="/addproject" render={()=>(<Suspense fallback={<Spinner />} ><AddProjectNavigation/></Suspense>)}/> */}
+                    <Route path={"/addproject/info"}  render={()=>(<Suspense fallback={<Spinner />} ><AddProjectInfo/></Suspense>)}/>
+                    <Route path={"/addproject/content"}  render={()=>(<Suspense fallback={<Spinner />} ><AddProjectContent/></Suspense>)}/>
+                    <Route path={"/addproject/role"} render={()=>(<Suspense fallback={<Spinner />} ><AddProjectRole/></Suspense>)}/>
+                    <Route path={"/addproject/products"} render={()=>(<Suspense fallback={<Spinner />} ><AddProjectProducts/></Suspense>)}/>
+                    <Route path={"/addproject/cover"} render={()=>(<Suspense fallback={<Spinner />} ><AddProjectCover/></Suspense>)}/>
+                
                 </React.Fragment>
-    ):('')}
+              )}
               <Redirect to="/" />
-
-
           </Switch>
         </div>
       </React.Fragment>

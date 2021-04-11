@@ -4,13 +4,18 @@ import Row  from 'react-bootstrap/Row';
 import Col  from 'react-bootstrap/Col';
 import Form  from 'react-bootstrap/Form';
 import Cropper from 'react-cropper';
+import { connect } from "react-redux";
 import '../../../css/forms.css';
 import './AddProject.css';
 import 'cropperjs/dist/cropper.css'; 
+import AddProjectTabs from './AddProjectTaps';
+import { addProjectCover, updateSteps } from './../../../redux/actions/projectActions';
+
 class AddProjectCover extends Component {
     state={
         image:'https://raw.githubusercontent.com/roadmanfong/react-cropper/master/example/img/child.jpg',
-        rangeVal:1
+        rangeVal:1,
+        coverName:'desplaied Name'
     }
     _crop() {
         // image in dataUrl
@@ -37,9 +42,18 @@ class AddProjectCover extends Component {
     this.state.rangeVal = rangeValueAfterChange;
             
     } 
+    handelSubmite = () => {
+        this.props.addProjectCover({
+            cover_name:this.state.coverName,
+            project_id:this.props.project.info.id,
+            token:this.props.user.token
+        });
+    }
     render(){
         return (
             <React.Fragment>
+                <AddProjectTabs saveBtn={this.handelSubmite}/>
+
                 <Container className="add-project-box p-0 pt-5 pl-5 pr-5">
                     <Row >
                         <Col xs={12} sm={12} md={12} lg={4} xl={4} className="h-100">
@@ -116,7 +130,7 @@ class AddProjectCover extends Component {
                                                     Display Name
                                                 </Form.Label>
                                                 <Col>
-                                                <Form.Control size="lg" type="text" defaultValue="Project Name" style={{'height':'60px','fontSize':'20px','fontWeight':'bold','color':'#000'}} placeholder="Large text" />
+                                                <Form.Control size="lg" type="text" defaultValue={this.state.coverName} onChange={(event)=>(this.setState({coverName:event.target.value}, console.log(this.state.coverName)))} style={{'height':'60px','fontSize':'20px','fontWeight':'bold','color':'#000'}} placeholder="Large text" />
                                                 </Col>
                                             </Form.Row>
                                         </Form.Group>
@@ -130,5 +144,13 @@ class AddProjectCover extends Component {
     }
 
 }
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        addProjectCover:(coverData)=>dispatch(addProjectCover(coverData)),
+        updateSteps:(currentStep,nextStep)=>dispatch(updateSteps(currentStep,nextStep))
+    }
+}
+const mapStateToProps = (state) => ({ user: state.user ,project:state.Project});
 
-export default AddProjectCover;
+
+export default connect(mapStateToProps,mapDispatchToProps)(AddProjectCover);
