@@ -7,5 +7,5 @@ import { apiMiddlware } from './middleware';
 
 export default function configureStore(initialState) {
     const composerEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-    return createStore(rootReducer, initialState, composerEnhancers(applyMiddleware(thunk,apiMiddlware)))
+    return createStore(rootReducer, initialState, composerEnhancers(applyMiddleware(thunk, apiMiddlware)))
 }
