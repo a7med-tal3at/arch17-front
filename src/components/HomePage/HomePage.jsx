@@ -36,6 +36,7 @@ import { generateKey } from './../../static/utility';
 import AddCompanyProject from './../Project/AddProject/AddProjectBtns/AddCompanyProject';
 import AddBrandProject from './../Project/AddProject/AddProjectBtns/AddBrandProject';
 import AddDesignerProject from './../Project/AddProject/AddProjectBtns/AddDesignerProject';
+import AddArch17Project from './../Project/AddProject/AddProjectBtns/AddArch17Project';
 
 
 class HomePage extends Component{
@@ -102,9 +103,10 @@ class HomePage extends Component{
                     <h2 className="mt-3">
                         Add Projects Btns
                     </h2>
-                    <AddCompanyProject id="11" />
-                    <AddBrandProject id="2" />
-                    <AddDesignerProject id="107" />
+                    <AddCompanyProject id="1"  key={generateKey('divs')}/>
+                    <AddBrandProject id="1"  key={generateKey('divs')}/>
+                    <AddDesignerProject id="1"  key={generateKey('divs')}/>
+                    <AddArch17Project id="1" key={generateKey('divs')}/>
                 </div>
                 <div className="w-100 home-page m-auto "key={generateKey('divs')} >
                         <section className="mega-menu bg-white py-3 none-mobile ">

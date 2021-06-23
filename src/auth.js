@@ -1,13 +1,13 @@
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
-const base_url= "https://arch17.herokuapp.com/api/user/registration/signup";
+const base_url= "http://127.0.0.1:8000/api/user/registration/signup";
 
 
 export function signup(data){
 
     axios
         .post(
-            "https://arch17.herokuapp.com/api/user/registration/signup", data
+            "http://127.0.0.1:8000/api/user/registration/signup", data
         )
         .then((res) => {
             console.log('Registered');
