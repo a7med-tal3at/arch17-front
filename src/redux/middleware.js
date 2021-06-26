@@ -14,7 +14,7 @@ if (action.type===constants.API){
     }).then((response) => {
         // console.log(response)
 
-        window.location.reload('/')
+        // window.location.reload('/')
         if (success) dispatch(success(response.data));
         if (success) postProcesSuccess(response.data);
     }).catch(err => {
