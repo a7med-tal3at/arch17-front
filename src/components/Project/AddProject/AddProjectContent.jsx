@@ -12,7 +12,9 @@ import { BsCodeSlash } from "react-icons/bs";
 import { FaCloudUploadAlt,FaPencilAlt } from 'react-icons/fa';
 import { BiPlusMedical } from "react-icons/bi";
 import { generateKey } from './../../../static/utility';
-import LoadingSpinner from './loadingSpinner';
+import LoadingSpinner from '../../UI/Spinner/Spinner'
+
+import axios from 'axios';
 import AddProjectTabs from './AddProjectTaps';
 import { connect } from "react-redux";
 import {withRouter} from 'react-router-dom';
@@ -24,35 +26,56 @@ class AddProjectContent extends Component{
         content:[],
     };
     componentDidMount(){
-        this.setState({content:[   
-            {id:generateKey("text"),type: "text", value: '<p><span style="font-family: jura;"><span style="font-size: 24pt;">Some </span><span style="color: #169179;">Bla </span><span style="background-color: #e03e2d; color: #ffffff;">Bla </span>Bla</span></p>'},
-            {id:generateKey("embed"),type: "embed", value: "https://www.youtube.com/embed/TxuFSkQxeUE"},
-            {id:generateKey("image"),type: "image", value: "https://cdn.glitch.com/d7f4f279-e13b-4330-8422-00b2d9211424%2FGlitch-Error-Rainbow-Mug-hires.png"},
-            {id:generateKey("text"),type: "text", value: "Some Bla Bla Bla"},
-            {id:generateKey("image"),type: "image", value: "https://www.arch17.com/assets/img/home/main-03.jpg"},
-            {id:generateKey("text"),type: "text", value: "Some Bla Bla Bla"},
-            {id:generateKey("embed"),type: "embed", value: "https://www.youtube.com/embed/TxuFSkQxeUE"},
-            {id:generateKey("text"),type: "text", value: "Some Bla Bla Bla"},
-            {id:generateKey("image"),type: "image", value: "https://www.arch17.com/assets/img/home/main-04.jpg"},
-            {id:generateKey("embed"),type: "embed", value: "https://www.youtube.com/embed/TxuFSkQxeUE"},
-            {id:generateKey("text"),type: "text", value: "Some Bla Bla Bla"},
-            {id:generateKey("embed"),type: "embed", value: "https://www.youtube.com/embed/TxuFSkQxeUE"},
-            {id:generateKey("embed"),type: "embed", value: "https://www.youtube.com/embed/TxuFSkQxeUE"}
-            ]},()=> console.log('COMPONENT DID MOUNT',this.state));
+
     }
     handleNewFiles = files => {
-        files.base64.map(
-            // eslint-disable-next-line array-callback-return
-            file =>
-            {
-        const updatedFormElement = [...this.state.content,{id:generateKey('image'),type: 'image'  ,value:file}];
-        this.setState({content:updatedFormElement},()=>console.log(this.state.content.filter(
-            img=>{
-                console.log(this.state.content);
-                console.log('Image' , 'Should Be Uploaded');
-                return img.type === 'image';
-            }
-        )));
+        
+        files.base64.forEach((file,i) => {
+            console.log(files.fileList[i]);
+            const randStr =  generateKey('image');
+            const updatedFormElement = [...this.state.content,{id:randStr,type: 'image',value:file}];
+            this.setState({content:updatedFormElement},async ()=>{
+                
+                let formData = new FormData();
+                formData.append("project_id", this.props.project.info.id);
+                formData.append("token", this.props.user.token);
+                formData.append("content_media", files.fileList[i]);        
+            await axios({
+                    method:'POST',
+                    url: 'http://127.0.0.1:8000/api/account/addproject/addContentImage',
+                    data: formData,
+                    headers: {
+                        'Authorization': this.props.user.token,
+                        'Content-Type': 'multipart/form-data'
+                    }
+                    }).then((response) => {
+                        if(response.data.data[1]){
+                            let updatedImageUrl = response.data.data[1];
+                            let imageIndex = this.state.content.indexOf(this.state.content.filter(img=>img.id===randStr)[0]);
+                            // 1. Make a shallow copy of the items
+                            let items  = [...this.state.content];
+                            // 2. Make a shallow copy of the item you want to mutate
+                            let item  = {...items[imageIndex]};
+                            // 3. Replace the property you're intested in
+                            item.value = updatedImageUrl;
+                            // 4. Put it back into our array. N.B. we *are* mutating the array here, but that's why we made a copy first
+                            items[imageIndex] = item;
+                            // 5. Set the state to our new copy
+                            this.setState({content:items});
+                            // const updatedElement = [{this.state.content[imageIndex]:{...this.state.content[imageIndex] , value:updatedImageUrl} }];
+                            console.log(
+                                updatedImageUrl,
+                                this.state.content,
+                            );
+                            return true;
+                        }
+                    }).catch(err => {
+                        console.log(err);
+                    }) 
+                
+            });
+
+
         });
     }
     handelNewTextEditor = ()=>{

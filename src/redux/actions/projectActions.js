@@ -1,6 +1,5 @@
 import axios from 'axios';
 import * as constants from '../actions/actionsConstants';
-
 export const addProjectCreator = (creator,id) => ({
     type: constants.ADD_PROJECT_CREATOR,
     payload: {
@@ -17,11 +16,11 @@ export const updateSteps = (currentStep,nextStep) => ({
     }
 })
 
-export const startAddProjectInfo  = () => {
-    return{
-        type: constants.START_ADD_PROJECT_INFO
-    }
-}
+// export const startAddProjectInfo  = () => {
+//     return{
+//         type: constants.START_ADD_PROJECT_INFO
+//     }
+// }
 export const addProjectInfoSucsses = (infoData) =>{
     return{
     type: constants.ADD_PROJECT_INFO_SUCSSES,
@@ -29,33 +28,35 @@ export const addProjectInfoSucsses = (infoData) =>{
     }
 }
 
-export const addProjectInfoFails = (errorMessage) =>{
-    return {
-    type: constants.ADD_PROJECT_INFO_FAILS,
-    loading:false,
-    message:errorMessage
-    }
-}
+// export const addProjectInfoFails = (errorMessage) =>{
+//     return {
+//     type: constants.ADD_PROJECT_INFO_FAILS,
+//     loading:false,
+//     message:errorMessage
+//     }
+// }
 export const addProjectInfo = (data) => {
     
     return dispatch => {
         console.log(data);
-        dispatch(startAddProjectInfo());
-        axios({
-            method:'POST',
-            url: 'http://127.0.0.1:8000/api/account/addproject/info',
-            data: data,
-            headers: {
-                'Authorization': data.token
-            }
-            }).then((response) => {
-                // dispatch(addProjectId(response.data.project.id))
-                dispatch(addProjectInfoSucsses(response.data.data.project))
-                console.log(response.data.data.project);
-            }).catch(err => {
-                dispatch(addProjectInfoFails(err))
-                console.log(err);
-            })
+        dispatch(addProjectInfoSucsses(data))
+        // dispatch(startAddProjectInfo());
+        // axios({
+        //     method:'POST',
+        //     url: 'http://127.0.0.1:8000/api/account/addproject/info',
+        //     data: data,
+        //     headers: {
+        //         'Authorization': data.token
+        //     }
+        //     }).then((response) => {
+        //         // dispatch(addProjectId(response.data.project.id))
+        //         dispatch(addProjectInfoSucsses(response.data.data.project))
+
+        //         console.log(response);
+        //     }).catch(err => {
+        //         dispatch(addProjectInfoFails(err))
+        //         console.log(err);
+        //     })
     }
 };
 
@@ -95,6 +96,7 @@ export const addProjectContent = (data) => {
             }
         }).then((response) => {
             dispatch(addProjectContentSucsses(response.data.data.project_description.description_text))
+
             console.log(response);
         }).catch(err => {
             console.log(err);
