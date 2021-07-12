@@ -1,10 +1,11 @@
 import React from 'react';
-import { Container, Spinner } from 'react-bootstrap';
+import { Container} from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 import { IoIosArrowBack } from 'react-icons/io';
 import { Nav } from 'react-bootstrap';
 import { NavLink} from 'react-router-dom';
+import { connect } from 'react-redux';
 const addProjectTabs = (props) =>{
 
     return (
@@ -19,23 +20,23 @@ const addProjectTabs = (props) =>{
                                         </button>
                                     <Nav className="nav-container">
                                         <Nav.Item>
-                                            <NavLink activeClassName="add-project-nav-active" className="add-project-nav-link" to={"/addproject/info"} >1. Project Info</NavLink>
+                                            <NavLink activeClassName="add-project-nav-active" className={`add-project-nav-link  ${props.project.info ? 'add-project-nav-active' : null }`} to={"/addproject/info"} >1. Project Info</NavLink>
                                         </Nav.Item>
                                         <span className="nav-link-separator">|</span>
                                         <Nav.Item>
-                                            <NavLink activeClassName="add-project-nav-active" className="add-project-nav-link" to={"/addproject/content"}  >2. Content</NavLink>
+                                            <NavLink activeClassName="add-project-nav-active" className={`add-project-nav-link  ${props.project.content ? 'add-project-nav-active' : null }`} to={"/addproject/content"}  >2. Content</NavLink>
                                         </Nav.Item>
                                         <span className="nav-link-separator">|</span>
                                         <Nav.Item>
-                                            <NavLink activeClassName="add-project-nav-active" className="add-project-nav-link" to={"/addproject/role"}  >3. Role</NavLink>
+                                            <NavLink activeClassName="add-project-nav-active" className={`add-project-nav-link  ${props.project.role ? 'add-project-nav-active' : null }`} to={"/addproject/role"}  >3. Role</NavLink>
                                         </Nav.Item>
                                         <span className="nav-link-separator">|</span>
                                         <Nav.Item>
-                                            <NavLink activeClassName="add-project-nav-active" className="add-project-nav-link" to={"/addproject/products"}  >4. Tag Products</NavLink>
+                                            <NavLink activeClassName="add-project-nav-active" className={`add-project-nav-link  ${props.project.products ? 'add-project-nav-active' : null }`} to={"/addproject/products"}  >4. Tag Products</NavLink>
                                         </Nav.Item>
                                         <span className="nav-link-separator">|</span>
                                         <Nav.Item>
-                                            <NavLink activeClassName="add-project-nav-active" className="add-project-nav-link" to={"/addproject/cover"}  >5. Cover</NavLink>
+                                            <NavLink activeClassName="add-project-nav-active" className={`add-project-nav-link  ${props.project.cover ? 'add-project-nav-active' : null }`} to={"/addproject/cover"}  >5. Cover</NavLink>
                                         </Nav.Item>
                                     </Nav>
                                     <div className="add-project-nav-btns">
@@ -54,4 +55,6 @@ const addProjectTabs = (props) =>{
             </React.Fragment>
     );
 }
-export default addProjectTabs;
+const mapStateToProps = (state) => ({ user: state.user ,project:state.Project});
+
+export default connect(mapStateToProps)(addProjectTabs);

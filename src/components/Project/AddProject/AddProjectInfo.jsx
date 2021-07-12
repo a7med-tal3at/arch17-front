@@ -1,8 +1,5 @@
 import React , {Component} from 'react';
-import Container  from 'react-bootstrap/Container';
-import Row  from 'react-bootstrap/Row';
-import Col  from 'react-bootstrap/Col';
-import Form  from 'react-bootstrap/Form';
+import {Container, Row, Col,  Form}  from 'react-bootstrap';
 import { connect } from "react-redux";
 import {categories , years , types , Countries} from '../../../static/constant';
 import {checkValidity,updateObject} from '../../../static/utility';
@@ -12,62 +9,69 @@ import './AddProject.css';
 import { addProjectInfo, updateSteps } from './../../../redux/actions/projectActions';
 import AddProjectTabs from './AddProjectTaps';
 import {withRouter} from 'react-router-dom';
-
+import Sppiner from '../../UI/Spinner/Spinner'
+import axios from 'axios';
+import { toast, Slide } from 'react-toastify'
+import { Fragment } from 'react';
 class AddProjectInfo extends Component{
     state = {
         infoForm:{
             projectName:{
+                title:'Project Name',
                 value:'',
                 validation:{
-                    requierd:true,
-                    minLingth:5,
+                    required:true,
+                    minLength:5,
                 },
                 valid:false,
                 touched:false,
                 err:null
             },
             projectType:{
+                title:'Project Types',
                 value:[],
                 validation:{
-                    requierd:true
-                },
-                valid:false,
-                touched:false,
-                err:null
-            },
-            projectCategory:{
-                value:'',
-                validation:{
-                    requierd:true,
                     isArray:true
                 },
                 valid:false,
                 touched:false,
                 err:null
             },
-            projectCountry:{
+            projectCategory:{
+                title:'Project Cateogry',
                 value:'',
                 validation:{
-                    requierd:true
+                    required:true
+                },
+                valid:false,
+                touched:false,
+                err:null
+            },
+            projectCountry:{
+                title:'Project Country',
+                value:'',
+                validation:{
+                    required:true
                 },
                 valid:false,
                 touched:false,
                 err:null
             },
             projectCity:{
+                title:'Project City',
                 value:'',
                 validation:{
-                    requierd:true
+                    required:true
                 },
                 valid:false,
                 touched:false,
                 err:null
             },
             projectYear:{
+                title:'Project Year',
                 value:'',
                 validation:{
-                    isNumeric:true,
-                    requierd:true
+                    required:true
                 },
                 valid:false,
                 touched:false,
@@ -76,53 +80,116 @@ class AddProjectInfo extends Component{
         },
         formIsValid: false,
         selectedOption: null,
+        loading:false
     };
     componentDidMount(){
-        console.log(this.props.project)
         this.props.updateSteps('info','content')
     }
     sunmiteandredirect = () =>{
-        console.log(this.state.formIsValid);
-        if(this.state.formIsValid){
-        let infoObject = {
-            "name":this.state.infoForm.projectName.value,
-            "types":this.state.infoForm.projectType.value,
-            "category":this.state.infoForm.projectCategory.value,
-            "country":this.state.infoForm.projectCountry.value,
-            "city":this.state.infoForm.projectCity.value,
-            "year":this.state.infoForm.projectYear.value.toString(),
-            "state":"info",
-            "token":this.props.user.token
-        };
-        console.log(infoObject);
-        if (this.props.project.proejctCreator.creator == 'company') {
-            infoObject.company_id = this.props.project.proejctCreator.id;
+        console.log(this.state.infoForm)
+        let isValid = true
+        for (const key in this.state.infoForm) {
+            isValid = this.state.infoForm[key].valid && isValid
         }
-        this.props.addProjectInfo(infoObject);
-            if(this.props.project.error === null ){
-                this.props.history.push(this.props.project.nextStep);
+        console.log(isValid)
+        if (!isValid) {
+            toast.error(
+                <Fragment>
+                    <div className='toastify-header'>
+                    <div className='title-wrapper'>
+                        <h6 className='toast-title font-weight-bold'>{'Opps'}</h6>
+                    </div>
+                    </div>
+                    <div className='toastify-body'>
+                    <span>{'Please Fill all the inputs'}</span>
+                    </div>
+                </Fragment>,
+                { transition: Slide, hideProgressBar: true, autoClose: 2000 }
+                )
+        } else {
+            let infoObject = {}
+            for (const key in this.state.infoForm) {
+                infoObject[key] = this.state.infoForm[key].value
             }
+            infoObject['authorable_id'] = this.props.project.proejctCreator.id
+            infoObject['authorable_type'] = this.props.project.proejctCreator.creator
+            console.log(infoObject)
+            toast.success(
+                <Fragment>
+                    <div className='toastify-header'>
+                    <div className='title-wrapper'>
+                        <h6 className='toast-title font-weight-bold'>{'su'}</h6>
+                    </div>
+                    </div>
+                    <div className='toastify-body'>
+                    <span>{'Project indfo will be added'}</span>
+                    </div>
+                </Fragment>,
+                { transition: Slide, hideProgressBar: true, autoClose: 2000 }
+                )
+        }
+        console.log(this.state.formIsValid);
+
+        if(this.state.formIsValid){
+            let infoObject = {
+                "name":this.state.infoForm.projectName.value,
+                "types":this.state.infoForm.projectType.value,
+                "category":this.state.infoForm.projectCategory.value,
+                "country":this.state.infoForm.projectCountry.value,
+                "city":this.state.infoForm.projectCity.value,
+                "year":this.state.infoForm.projectYear.value.toString(),
+                "state":"info",
+                "token":this.props.user.token
+            };
+        this.setState({loading:true})
+            axios({
+                method:'POST',
+                url: 'http://127.0.0.1:8000/api/account/addproject/info',
+                data: infoObject,
+                headers: {
+                    'Authorization': `Bearer ${infoObject.token}`
+                }
+                }).then((response) => {
+                    this.setState({loading:false})
+                    this.props.addProjectInfo(infoObject);
+                    this.props.history.push('content')
+                    console.log(response);
+                }).catch(err => {
+                    // dispatch(addProjectInfoFails(err))
+                    this.setState({loading:false})
+                    console.log(err);
+                })
+            this.props.addProjectInfo(infoObject);
         }
     }
+
     inputCangedHandeler = (value,inputIdentifier) =>{
+    const rulesValidity = checkValidity(value, this.state.infoForm[inputIdentifier].validation, inputIdentifier)
     const updatedFormElement = updateObject(this.state.infoForm[inputIdentifier],
         {
-            value: value  ,
-            valid: checkValidity( value , this.state.infoForm[inputIdentifier].validation ) ,
-            touched:true
+            value: value,
+            valid: !Array.isArray(rulesValidity) ? true : false,
+            touched: true,
+            err: Array.isArray(rulesValidity) ? rulesValidity : null 
         });
         const updatedInfoForm = updateObject(this.state.infoForm , {
             [inputIdentifier]:updatedFormElement
         });
         let formIsValid = true;
         for(let inputIdentifier in updatedInfoForm){
-            formIsValid=updatedInfoForm[inputIdentifier].valid;
+            formIsValid = updatedInfoForm[inputIdentifier].valid && formIsValid ;
+            console.log(formIsValid, updatedInfoForm[inputIdentifier].valid)
         }
         this.setState({infoForm:updatedInfoForm,formIsValid:formIsValid}, () => {
-            console.log('State Updated',this.state);
+            console.log('State Updated',formIsValid,this.state);
         });
+    console.log(value, inputIdentifier, rulesValidity);
     }
     render(){
+        // if(this.props.project.info !== null && this.props.project.mode === 'Add'){
+        //     console.log(this.props.project.info);
+        //     this.props.history.push(this.props.project.currentStep);
+        // }
         const categoriesOptions = categories.map(cat => {
             return { value: cat, label: cat }
         });
@@ -138,7 +205,11 @@ class AddProjectInfo extends Component{
 
         return (
             <React.Fragment>
-                {this.props.project.loading?(<p>loading</p>):null}
+                {this.state.loading?
+                <Sppiner />
+                :
+                null
+                }
                 <AddProjectTabs saveBtn={this.sunmiteandredirect} />
                 <Container className="add-project-box">
                     <Row className="justify-content-center">
@@ -156,7 +227,9 @@ class AddProjectInfo extends Component{
                                             className="add-project-name" 
                                             type="text" 
                                             placeholder="Add the project name"
+                                            defaultValue={this.props.project.info ? this.props.project.info.name : ''}
                                             onChange={(event)=>this.inputCangedHandeler(event.target.value,'projectName')} />
+                                            {this.state.infoForm.projectName.touched && this.state.infoForm.projectName.err ? this.state.infoForm.projectName.err.map(message => (<p className="text-danger">{message}</p>)) : null}
                                     </Form.Group>
                                 </Col>
                                 <Col  xs={12} sm={12} md={9} lg={9} xl={9}>
@@ -176,10 +249,11 @@ class AddProjectInfo extends Component{
                                             onChange={(event)=>this.inputCangedHandeler(event.map(el=>el.value),'projectType')}
                                             placeholder="Project Type"
                                             isMulti={true}
-                                            closeMenuOnSelect={false}
                                             hideSelectedOptions={false}
+                                            // defaultValueW={this.props.project.info ? this.props.project.info.types:''}
                                         />
                                         </Col>
+                                        {this.state.infoForm.projectType.touched && this.state.infoForm.projectType.err ? this.state.infoForm.projectType.err.map(message => (<p className="text-danger">{message}</p>)) : null}
                                     </Form.Group>
                                 </Col>
                                 <Col  xs={12} sm={12} md={12} lg={12} xl={12} className="pl-0 mb-5" >
@@ -194,8 +268,9 @@ class AddProjectInfo extends Component{
                                             onChange={(event)=>this.inputCangedHandeler(event.value,'projectCategory')}
                                             placeholder="Project Category"
                                             isMulti={false}
-                                            closeMenuOnSelect={false}
+                                            defaultValueW={this.props.project.info ? this.props.project.info.category:''}
                                         />
+                                    {this.state.infoForm.projectCategory.touched && this.state.infoForm.projectCategory.err ? this.state.infoForm.projectCategory.err.map(message => (<p className="text-danger">{message}</p>)) : null}
                                         </Col>
                                     </Form.Group>
                                 </Col>
@@ -213,12 +288,14 @@ class AddProjectInfo extends Component{
                                             onChange={(event)=>this.inputCangedHandeler(event.value,'projectCountry')}
                                             placeholder="Project Country"
                                             isMulti={false}
-                                            closeMenuOnSelect={true}
+
 
                                             />
-                                        </Col>                                      
+                                        </Col>
+                                    {this.state.infoForm.projectName.touched && this.state.infoForm.projectCountry.err ? this.state.infoForm.projectCountry.err.map(message => (<p className="text-danger">{message}</p>)) : null}
                                         <Col xs={12} sm={12} md={6} lg={4} xl={4} >
                                             <Form.Control className="p-c-margin"type="text" placeholder="Input City" onChange={(event)=>this.inputCangedHandeler(event.target.value,'projectCity')}/>
+                                            {this.state.infoForm.projectCity.touched && this.state.infoForm.projectCity.err ? this.state.infoForm.projectCity.err.map(message => (<p className="text-danger">{message}</p>)) : null}
                                         </Col>
                                     </Form.Group>
                                 </Col>
@@ -232,17 +309,19 @@ class AddProjectInfo extends Component{
                                     <CustomSelect 
                                             name="project-year"
                                             options={yearsList}
-                                            onChange={(event)=>this.inputCangedHandeler(event.value,'projectYear')}
+                                            onChange={(event)=>this.inputCangedHandeler(event.value.toString(),'projectYear')}
                                             placeholder="Select Project Year"
                                             isMulti={false}
                                             closeMenuOnSelect={true}
                                         />
+                                    {this.state.infoForm.projectName.touched && this.state.infoForm.projectYear.err ? this.state.infoForm.projectYear.err.map(message => (<p className="text-danger">{message}</p>)) : null}
                                 </Form.Group>
                                 </Col>
                             </Form.Row>
                         </Col>
                     </Row>
                 </Container>
+
             </React.Fragment>
         );
     }

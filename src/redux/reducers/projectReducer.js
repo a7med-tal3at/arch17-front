@@ -9,7 +9,8 @@ const defaultState = {
     nextStep:null,
     info:null,
     content:null,
-    role:null
+    role:null,
+    mode:'Add'
 }
 
 
